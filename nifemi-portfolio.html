@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nifemi Fabunmi | Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 4rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+      color: #ff85a2;
+    }
+    header p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #f5f5f5;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff85a2;
+    }
+    section {
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #ff85a2;
+    }
+    .scrapbook-photo {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+    }
+    .scrapbook-photo img {
+      width: 200px;
+      height: auto;
+      border: 4px solid #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .tape {
+      position: absolute;
+      width: 60px;
+      height: 20px;
+      background: #ff85a2;
+      opacity: 0.7;
+      transform: rotate(-5deg);
+    }
+    .tape.top-left {
+      top: -10px;
+      left: -10px;
+    }
+    .tape.top-right {
+      top: -10px;
+      right: -10px;
+      transform: rotate(5deg);
+    }
+    .caption {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.1rem;
+      color: #ffc7da;
+      margin-top: 0.5rem;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .project {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 133, 162, 0.2);
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project img {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px dashed #ff85a2;
+      margin-bottom: 1rem;
+    }
+    .project h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+    .project p {
+      font-size: 1rem;
+      color: #d6d6d6;
+    }
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #aaaaaa;
+    }
+    a.button, button.button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #ff85a2;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    a.button:hover, button.button:hover {
+      background: #e86a8c;
+      transform: scale(1.05);
+    }
+    #funFactDisplay {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #ffc7da;
+      transition: opacity 0.5s ease;
+    }
+  </style>
+
+  
+</head>
+<body>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <header>
+    <h1>Oluwanifemi Fabunmi</h1>
+    <p>Double major in Computer Science & Finance at Clarkson University. I am very passionate about blending analytical power with creative tech, AI, fintech, designing smart and intuitive systems with personality that also actually feel good to use.</p>
+    <nav>
+      <a href="#about">About</a>
+      <br><br>
+      <a href="#projects">Projects</a>
+      <br><br>
+      <a href="#contact">Contacts</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="scrapbook-photo">
+      <img src="/images/nifemi.jpg" alt="Nifemi">
+      <div class="tape top-left"></div>
+      <div class="tape top-right"></div>
+      <div class="caption">Me @ 2AM debugging code while craving jollof 😅</div>
+    </div>
+    <p>I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York). 
+      <br><br>
+      I’ve developed algorithmic trading tools, financial dashboards, and fraud detection models. I’m also co-founder of Clarkson’s African Student Union and a member of NSBE (National Society of Black Engineers) and SWE (Society of Women Engineers). I bring energy, community, and curiosity into every project.<br><br>
+    Right now, I’m exploring the intersection of quantitative finance (trading and research), machine learning, Artificial Intelligence, Data minning, visual storytelling and dreaming up tools that make data feel intuitive and empowering.</p>
+    <br><br>
+    <a class="button" href="resume.pdf" download>Download Resume</a>
+    <br><br>
+    <a class="button" href="https://github.com/nifemifabunmi" target="_blank">Visit My GitHub</a>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <img src="/images/trading-app.png" alt="Algorithmic Trading App">
+        <br><br>
+        <h3>Algorithmic Trading App</h3>
+        <p>Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs. Currently ~40% accurate with market predictions — working on integrating reinforcement learning to boost performance.</p>
+      </div>
+      <div class="project">
+        <img src="/images/stock-dashboard.png" alt="Stock Market Dashboard">
+        <br><br>
+        <h3>Stock Market Dashboard</h3>
+        <p>Interactive dashboards using Tableau and Excel — over 10 years of financial data analyzed for investor-ready insights with 92% trend identification accuracy.</p>
+      </div>
+      <div class="project">
+        <h3>Fraud Detection Model</h3>
+        <p>Trained a Python ML model using scikit-learn to flag anomalies in transaction datasets. Achieved 84% precision; next goal: reducing false positives with neural net integration.</p>
+      </div>
+      <div class="project">
+        <h3>Startup Deal Sourcing Externship</h3>
+        <p>Conducted market and financial analysis on early-stage startups during a VC externship. Sourced and evaluated startups using frameworks like TAM/SAM/SOM and comparable analysis.</p>
+      </div>
+      <div class="project">
+        <h3>File-Based Web Browser</h3>
+        <p>C++ prototype with modular navigation commands and text formatting. Reached 85% command accuracy and cut response lag by 30%.</p>
+      </div>
+      <div class="project">
+        <h3>Inventory Tracking System</h3>
+        <p>Designed in C++ using structs, vectors, and file I/O. Provided 78.6% accuracy on inventory updates, with a 30% faster processing time.</p>
+      </div>
+      <div class="project">
+        <h3>Bomb Defusal Lab</h3>
+        <p>Disassembled and debugged binary phases (1–6) using C. Achieved 100% accuracy and reduced disassembly time by 40% with optimized logic routines.</p>
+      </div>
+    </div>
+  </section>
+
+   <section id="gallery">
+    <h2>Creative & Certification Gallery 🎨📜</h2>
+    <p style="margin-bottom: 2rem; color: #ccc; max-width: 700px; margin-left: auto; margin-right: auto;">
+      A cozy corner for showcasing everything beyond code — from digital art and design to certifications and creative side quests. Click any image for a closer look!
+    </p>
+    <div class="project-grid">
+      <div class="project">
+        <img src="/images/art-portrait.jpg" alt="Digital Art Portrait">
+        <p class="caption">Self-portrait in Procreate — pink tones always 🌸</p>
+      </div>
+      <div class="project">
+        <img src="/images/microsoft-cert.png" alt="Microsoft C# Certification">
+        <p class="caption">Microsoft Foundational C# Certificate – earned July 2025 💻✨</p>
+      </div>
+      <div class="project">
+        <img src="/images/sketchbook-page.jpg" alt="Sketchbook Doodles">
+        <p class="caption">Late night thoughts + rough UI mockups 🧠📓</p>
+      </div>
+      <div class="project">
+        <img src="/images/cert-upcoming.png" alt="Placeholder for upcoming cert">
+        <p class="caption">More certs coming soon... because learning never stops 🤍</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p>Let’s build something meaningful. Whether you’re looking for a creative collaborator, hiring for an internship, or just want to talk shop or K-dramas 😌. 
+      <br><br>Email me at <a href="mailto:oluwanifemifabunmi6@gmail.com">oluwanifemifabunmi6@gmail.com</a> or connect via <a href="https://www.linkedin.com/in/nifemif-b76a34243/">LinkedIn</a>.
+      <br><br>
+      </p>
+    <button id="funFactBtn" class="button">Tap for a Peek Into My Nerdy Little Brain 🧠💕</button>
+    <p id="funFactDisplay"></p>
+  </section>
+
+  <section id="quote-rotator" style="padding: 2rem; text-align: center; background: #111; color: #ff85a2; font-style: italic; font-size: 1.25rem; max-width: 700px; margin: 2rem auto; border-radius: 10px; box-shadow: 0 0 15px #ff85a2;">
+  <p id="quote-text">Loading inspirational quote...</p>
+</section>
+
+<script>
+  const quotes = [
+    "“Code is like humor. When you have to explain it, it’s bad.” – Cory House",
+    "“Simplicity is the soul of efficiency.” – Austin Freeman",
+    "“First, solve the problem. Then, write the code.” – John Johnson",
+    "“Talk is cheap. Show me the code.” – Linus Torvalds",
+    "“The heart is a strange beast. It can carry you through hell.” – Dr. Spencer Reid",
+    "“Experience is the name everyone gives to their mistakes.” – Oscar Wilde",
+    "“In investing, what is comfortable is rarely profitable.” – Robert Arnott",
+    "“The mind is a powerful thing. It can convince you of things that aren’t true.” – Dr. Spencer Reid",
+    "“You can’t change the past, but you can learn from it.” – Emily Prentiss",
+    "“Life's short. Talk fast.” – Lorelai Gilmore, Gilmore Girls",
+    "“Risk comes from not knowing what you’re doing.” – Warren Buffett",
+    "“The greatest weapon against stress is our ability to choose one thought over another.” – Jason Gideon",
+    "“The mind is like a parachute; it only works when open.” – Jason Gideon",
+    "“Stay curious, stay coding.” – Nifemi Fabunmi 💖"
+  ];
+  let index = 0;
+  const quoteText = document.getElementById('quote-text');
+
+  function showNextQuote() {
+    quoteText.style.opacity = 0;
+    setTimeout(() => {
+      quoteText.textContent = quotes[index];
+      quoteText.style.opacity = 1;
+      index = (index + 1) % quotes.length;
+    }, 600);
+  }
+
+  setInterval(showNextQuote, 7000);
+  window.onload = showNextQuote;
+</script>
+
+  <footer>
+    © 2025 Oluwanifemi Fabunmi · Built with love, JavaScript, and lots of pink energy 💖
+  </footer>
+
+  <script>
+    const facts = [
+      "I once debugged a bug at 3AM with only ramen and BTS music.",
+      "My favorite data structure is the hash map (because fast lookups, duh).",
+      "I’m developing a machine learning model to support smart trading decisions.",
+      "My dream is to adopt a ragdoll cat and name it Satoshi 🐱",
+      "K-dramas while coding = perfect productivity boost."
+    ];
+
+    const btn = document.getElementById("funFactBtn");
+    const display = document.getElementById("funFactDisplay");
+
+    btn.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      display.style.opacity = 0;
+      setTimeout(() => {
+        display.textContent = facts[randomIndex];
+        display.style.opacity = 1;
+      }, 200);
+    });
+  </script>
+</body>
+</html>
