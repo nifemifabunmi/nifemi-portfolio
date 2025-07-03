@@ -88,6 +88,7 @@
       opacity: 0.7;
       transform: rotate(-5deg);
     }
+    
     .tape.top-left {
       top: -10px;
       left: -10px;
@@ -169,6 +170,21 @@
   
 </head>
 <body>
+  <div style="
+    position: fixed;
+    top: 20%;
+    left: 10px;
+    background: #1a1a1a;
+    color: #ffc7da;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 160px;
+    font-size: 0.9rem;
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(255,133,162,0.4);">
+    <strong>Now Building:</strong><br>
+    Personal Trading Bot
+  </div>div>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <header>
@@ -176,18 +192,13 @@
     <p>Double major in Computer Science & Finance at Clarkson University. I am very passionate about blending analytical power with creative tech, AI, fintech, designing smart and intuitive systems with personality that also actually feel good to use.</p>
     <nav>
       <a href="#about">About</a>
-      <br><br>
-      <br><br>
-      <br><br>
       <a href="#projects">Projects</a>
-      <br><br>
-      <br><br>
-      <br><br>
       <a href="#contact">Contacts</a>
     </nav>
   </header>
 
   <section id="about">
+    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
     <h2>About Me</h2>
     <div class="scrapbook-photo-row">
     <div class="scrapbook-photo">
@@ -226,6 +237,7 @@
   </section>
 
   <section id="projects">
+    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project">
@@ -268,6 +280,7 @@
   </section>
 
    <section id="gallery">
+     <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
     <h2>Creative & Certification Gallery 🎨📜</h2>
     <p style="margin-bottom: 2rem; color: #ccc; max-width: 700px; margin-left: auto; margin-right: auto;">
       A cozy corner for showcasing everything beyond code — from digital art and design to certifications and creative side quests. Click any image for a closer look!
@@ -299,7 +312,17 @@
     </div>
   </section>
 
+    <section id="learning">
+  <h2>What I’m Learning 📚</h2>
+  <p style="max-width: 700px; margin: 0 auto; color: #ccc;">
+    Right now, I’m deep-diving into reinforcement learning for algorithmic trading, brushing up on SQL joins (they're still tricky sometimes 😅), and building out my C++ project to strengthen low-level memory management skills.
+    <br><br>
+    I'm also watching "My Demon" because I deserve a break 🥲✨
+  </p>
+</section>
+
   <section id="contact">
+    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
     <h2>Get In Touch</h2>
     <p>Let’s build something meaningful. Whether you’re looking for a creative collaborator, hiring for an internship, or just want to talk shop or K-dramas 😌. 
       <br><br>Email me at <a href="mailto:oluwanifemifabunmi6@gmail.com">oluwanifemifabunmi6@gmail.com</a> or connect via <a href="https://www.linkedin.com/in/nifemif-b76a34243/">LinkedIn</a>.
@@ -345,6 +368,31 @@
   setInterval(showNextQuote, 7000);
   window.onload = showNextQuote;
 </script>
+
+    </section> <!-- contact section ends -->
+<section id="inspo" style="text-align:center; padding: 4rem 2rem;">
+  <h2>Inspo Board 💭🪄</h2>
+  <div class="scrapbook-photo-row">
+    <div class="scrapbook-photo">
+      <img src="/images/pinkcode.jpg" alt="pink code aesthetic">
+      <div class="tape top-left"></div>
+      <div class="tape top-right"></div>
+      <div class="caption">“Code, but make it ✨aesthetic✨”</div>
+    </div>
+    <div class="scrapbook-photo">
+      <img src="/images/graph-cute.jpg" alt="data graph art">
+      <div class="tape top-left"></div>
+      <div class="tape top-right"></div>
+      <div class="caption">Data is just art with math 💗📊</div>
+    </div>
+  </div>
+</section>
+
+    <section id="playlist" style="padding: 4rem 2rem; text-align: center;">
+  <h2>My Coding Playlist 🎶</h2>
+  <iframe style="border-radius:12px" src="https://open.spotify.com/playlist/7Issm5A1kcMKVlfRbeNc13?si=dyjM8Y4bSk-SkHRZCA-aRQ" width="80%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+</section>
+
 
   <footer>
     © 2025 Oluwanifemi Fabunmi · Built with love, JavaScript, and lots of pink energy 💖
