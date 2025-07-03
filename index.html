@@ -67,20 +67,22 @@
       color: #ff85a2;
     }
     .scrapbook-photo-row {
+      display: flex;         /* Make the container a flexbox */
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
       margin-top: 2rem;
     }
     .scrapbook-photo {
       position: relative;
       display: inline-block;
       margin-bottom: 2rem;
+      flex: 0 0 auto;        /* Prevent flex items from growing or shrinking */
       transform: rotate(-2deg);
     }
     
     .scrapbook-photo img {
-      width: 200px;
+      width: 150px;
       height: auto;
       border: 4px solid #fff;
       border-radius: 8px;
@@ -88,8 +90,8 @@
     }
     .tape {
       position: absolute;
-      width: 50px;
-      height: 30px;
+      width: 60px;
+      height: 20px;
       background: #ff85a2;
       opacity: 0.7;
       transform: rotate(-5deg);
@@ -438,9 +440,12 @@
     <section id="learning">
   <h2>What I’m Learning 📚</h2>
   <p style="max-width: 700px; margin: 0 auto; color: #ccc;">
-    Right now, I’m deep-diving into reinforcement learning for algorithmic trading, brushing up on SQL joins (they're still tricky sometimes 😅), and building out my C++ project to strengthen low-level memory management skills.
+    Right now, I’m deep-diving into reinforcement learning for algorithmic trading.
+    <br><br> I am also working on an externship with Beats by Dre working on qualitative and quantitave analysis while personally brushing up on SQL joins (they're still tricky sometimes 😅).
+    <br><br> I am building out my C++ project to strengthen low-level memory management skills.
     <br><br>
-    I'm also watching "My Demon" because I deserve a break 🥲✨
+     Between debugging code and analyzing market trends, I’m also carving out time for self-care, K-dramas, and babysitting.
+  I'm also watching lots of animes, youtube comedies, twitch live and rewatching a lot of shows and 1960s up to early 2000s movies including shows like Criminal Minds, Gilmore girls and The vampire diaries, because I deserve a break. 🥲✨
   </p>
 </section>
 
@@ -451,7 +456,7 @@
       <br><br>Email me at <a href="mailto:oluwanifemifabunmi6@gmail.com">oluwanifemifabunmi6@gmail.com</a> or connect via <a href="https://www.linkedin.com/in/nifemif-b76a34243/">LinkedIn</a>.
       <br><br>
       </p>
-    <button id="funFactBtn" class="button">Tap for a Peek Into My Nerdy Little Brain 🧠💕</button>
+    <button id="funFactBtn" class="button">Click Me 🧠💕</button>
     <p id="funFactDisplay"></p>
   </section>
 
@@ -492,27 +497,6 @@
   window.onload = showNextQuote;
 </script>
 
-    </section> <!-- contact section ends -->
-<section id="inspo" style="text-align:center; padding: 4rem 2rem;">
-  <h2>Inspo Board 💭🪄</h2>
-  <div class="scrapbook-photo-row">
-    <div class="scrapbook-photo">
-<iframe src="https://assets.pinterest.com/ext/embed.html?id=5629568279247675" height="588" width="345" frameborder="0" scrolling="no" ></iframe>      <div class="tape top-left"></div>
-      <div class="tape top-right"></div>
-      <div class="caption">“Code, but make it ✨aesthetic✨”</div>
-    </div>
-    <div class="scrapbook-photo">
- <iframe src="https://assets.pinterest.com/ext/embed.html?id=131871095333010249" 
-              height="400" width="250" frameborder="0" scrolling="no" 
-              style="border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
-      </iframe>
-      <div class="tape top-left"></div>
-      <div class="tape top-right"></div>
-      <div class="caption">Data is just art with math 💗📊</div>
-    </div>
-  </div>
-</section>
-
     <section id="playlist" style="padding: 4rem 2rem; text-align: center; background-color: #111;">
   <h2 style="color: #ff85a2; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">
     My Coding Playlist 🎶
@@ -527,7 +511,6 @@
     loading="lazy">
   </iframe>
 </section>
-
 
   <footer>
     © 2025 Oluwanifemi Fabunmi · Built with love, JavaScript, and lots of pink energy 💖
