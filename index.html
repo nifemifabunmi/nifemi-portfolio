@@ -62,6 +62,8 @@
     }
     .scrapbook-photo-row {
       display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
@@ -73,6 +75,40 @@
       margin-bottom: 2rem;
       transform: rotate(-2deg);
     }
+
+    
+    .about-layout {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+    .about-text {
+  max-width: 500px;
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+    .about-text a.button {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #e75480;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.about-text a.button:hover {
+  background: #fff;
+  color: #e75480;
+}
+
+    
     .scrapbook-photo img {
       width: 200px;
       height: auto;
@@ -83,7 +119,7 @@
     .tape {
       position: absolute;
       width: 60px;
-      height: 20px;
+      height: 30px;
       background: #ff85a2;
       opacity: 0.7;
       transform: rotate(-5deg);
@@ -99,9 +135,9 @@
     }
     .caption {
       font-family: 'Shadows Into Light', cursive;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       color: #ffc7da;
-      margin-top: 0.5rem;
+      margin-top: 0.7rem;
     }
     .project-grid {
       display: grid;
@@ -197,7 +233,7 @@
     <img src="/images/nifemi2.jpg" alt="Nifemi smiling in black top">
     <div class="tape top-left"></div>
     <div class="tape top-right"></div>
-    <div class="caption">Me after finally fixing a bug that ruined my night 💻😅</div>
+    <div class="caption">Manifesting clean commits, good grades, and clear skin 💅🏾🌸</div>
   </div>
 <br><br>
   <div class="scrapbook-photo-row">
@@ -205,7 +241,7 @@
     <img src="/images/nifemi3.jpg" alt="Nifemi with bubble tea">
     <div class="tape top-left"></div>
     <div class="tape top-right"></div>
-    <div class="caption">Fuel: bubble tea & binary logic 🧋✨</div>
+    <div class="caption">Me after finally fixing a bug that ruined my night 💻😅</div>
   </div>
 
     <p>I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York). 
