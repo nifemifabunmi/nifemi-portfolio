@@ -28,6 +28,12 @@
       font-family: 'Playfair Display', serif;
       margin-bottom: 1rem;
       color: #ff85a2;
+      position: relative;
+      z-index: 1;
+      text-shadow: 
+        0 0 8px #ff85a2,
+        0 0 16px #ffb6c1,
+        0 0 24px #ffc0cb;
     }
     header p {
       font-size: 1.25rem;
@@ -165,11 +171,113 @@
       color: #ffc7da;
       transition: opacity 0.5s ease;
     }
+
+    .floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-dot {
+  position: absolute;
+  background: radial-gradient(circle, #ffc7da 20%, transparent 70%);
+  width: 25px;
+  height: 25px;
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+}
+    #moodboard {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: #111;
+  border-radius: 12px;
+  margin: 4rem auto;
+  max-width: 900px;
+  box-shadow: 0 0 20px #ff85a2;
+}
+
+#moodboard h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #ff85a2;
+  margin-bottom: 1rem;
+}
+
+#moodboard p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #e0c1d9;
+}
+
+.moodboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.moodboard-grid img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #ff85a2;
+  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.moodboard-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 133, 162, 0.8);
+}
+
+  #cat-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 1.8rem;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
   </style>
 
   
 </head>
 <body>
+  <div id="cat-cursor">🐱</div>
+  
+  <div class="floating-bg">
+  <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+  <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
+  <div class="floating-dot" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
+  <div class="floating-dot" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
+  <div class="floating-dot" style="top: 60%; left: 60%; animation-delay: 8s;"></div>
+</div>
+  
   <div style="
     position: fixed;
     top: 20%;
@@ -184,7 +292,7 @@
     box-shadow: 0 0 10px rgba(255,133,162,0.4);">
     <strong>Now Building:</strong><br>
     Personal Trading Bot
-  </div>div>
+  </div>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <header>
@@ -278,6 +386,21 @@
       </div>
     </div>
   </section>
+
+    <section id="moodboard">
+  <h2>Moodboard & Inspirations ✨</h2>
+  <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem auto;">
+    A collage of coding vibes, K-Drama aesthetics, and creative sparks that keep me going.
+  </p>
+  <div class="moodboard-grid">
+    <img src="/images/code-aesthetic1.jpg" alt="Code aesthetic 1" />
+    <img src="/images/kdrama1.jpg" alt="K-Drama inspiration 1" />
+    <img src="/images/coding-setup.jpg" alt="Coding setup" />
+    <img src="/images/kdrama2.jpg" alt="K-Drama inspiration 2" />
+    <img src="/images/pinterest-inspo.jpg" alt="Pinterest inspiration" />
+    <img src="/images/pink-flowers.jpg" alt="Pink flowers" />
+  </div>
+</section>
 
    <section id="gallery">
      <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
@@ -419,5 +542,44 @@
       }, 200);
     });
   </script>
+    
+    <script>
+  const catCursor = document.getElementById('cat-cursor');
+
+  document.addEventListener('mousemove', (e) => {
+    catCursor.style.transform = `translate(${e.clientX + 10}px, ${e.clientY + 10}px)`;
+  });
+      @keyframes glowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+header h1 {
+  background: linear-gradient(90deg, #ff85a2, #ffc7da, #ff85a2);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowMove 4s ease-in-out infinite alternate;
+  text-shadow: 0 0 12px rgba(255, 133, 162, 0.5);
+}
+</script>
+
+    <div style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1a1a1a;
+  color: #ffc7da;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 10px rgba(255,133,162,0.3);">
+  📚 Learning: Reinforcement Learning + C++ Boost
+</div>
+
 </body>
 </html>
