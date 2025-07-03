@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oluwanifemi Fabunmi | Portfolio</title>
 
   <style>
@@ -13,16 +12,19 @@
       margin: 0;
       padding: 0;
     }
+
     body {
       background-color: #000000;
       color: #ffffff;
       font-family: 'Quicksand', sans-serif;
       line-height: 1.6;
     }
+
     header {
       padding: 4rem 2rem;
       text-align: center;
     }
+
     header h1 {
       font-size: 4rem;
       font-family: 'Playfair Display', serif;
@@ -30,127 +32,137 @@
       color: #ff85a2;
       position: relative;
       z-index: 1;
-      text-shadow: 
+      text-shadow:
         0 0 8px #ff85a2,
         0 0 16px #ffb6c1,
         0 0 24px #ffc0cb;
+      background: linear-gradient(90deg, #ff85a2, #ffc7da, #ff85a2);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowMove 4s ease-in-out infinite alternate;
+      text-shadow: 0 0 12px rgba(255, 133, 162, 0.5);
     }
+
+    @keyframes glowMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
     header p {
       font-size: 1.25rem;
       max-width: 600px;
       margin: 0 auto;
       color: #f5f5f5;
     }
+
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
     }
+
     nav a {
       text-decoration: none;
       color: #ffffff;
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #ff85a2;
     }
+
     section {
       padding: 8rem 2rem;
       text-align: center;
     }
+
     section h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       margin-bottom: 2rem;
       color: #ff85a2;
     }
-    .scrapbook-photo-row {
-      display: flex;        /* Make the container a flexbox */
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+
+    /* Unified image grid style */
+    .unified-image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem 2rem;
+      justify-items: center;
       margin-top: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .scrapbook-photo {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      /*flex: 0 0 auto;        Prevent flex items from growing or shrinking */
-      transform: rotate(-2deg);
+
+    .unified-image-grid img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #ff85a2;
+      box-shadow: 0 4px 15px rgba(255, 133, 162, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      background-color: #111;
     }
-    
-    .scrapbook-photo img {
-      width: 150px;
-      height: auto;
-      border: 4px solid #fff;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+    .unified-image-grid img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(255, 133, 162, 0.8);
     }
-    .tape {
-      position: absolute;
-      width: 50px;
-      height: 20px;
-      background: #ff85a2;
-      opacity: 0.7;
-      transform: rotate(-5deg);
-    }
-    
-    .tape.top-left {
-      top: -10px;
-      left: -10px;
-    }
-    .tape.top-right {
-      top: -10px;
-      right: -10px;
-      transform: rotate(5deg);
-    }
+
+    /* Caption style for gallery */
     .caption {
       font-family: 'Shadows Into Light', cursive;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: #ffc7da;
       margin-top: 0.7rem;
+      max-width: 140px;
+      text-align: center;
+      user-select: none;
     }
-    
-    .project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
+
     .project {
       background: #1a1a1a;
       border-radius: 10px;
       padding: 1rem;
       transition: transform 0.3s ease;
       box-shadow: 0 4px 10px rgba(255, 133, 162, 0.2);
+      max-width: 140px;
     }
+
     .project:hover {
       transform: translateY(-5px);
     }
-    .project img {
-      width: 100%;
-      border-radius: 12px;
-      border: 3px dashed #ff85a2;
-      margin-bottom: 1rem;
-    }
+
     .project h3 {
       margin-bottom: 0.5rem;
       font-size: 1.5rem;
       color: #ffffff;
     }
+
     .project p {
       font-size: 1rem;
       color: #d6d6d6;
     }
+
     footer {
       text-align: center;
       padding: 4rem 2rem;
       color: #aaaaaa;
     }
-    a.button, button.button {
+
+    a.button,
+    button.button {
       display: inline-block;
       margin-top: 1.5rem;
       padding: 0.75rem 1.5rem;
@@ -163,10 +175,13 @@
       cursor: pointer;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    a.button:hover, button.button:hover {
+
+    a.button:hover,
+    button.button:hover {
       background: #e86a8c;
       transform: scale(1.05);
     }
+
     #funFactDisplay {
       margin-top: 1.5rem;
       font-size: 1.1rem;
@@ -175,110 +190,94 @@
     }
 
     .floating-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
 
-.floating-dot {
-  position: absolute;
-  background: radial-gradient(circle, #ffc7da 20%, transparent 70%);
-  width: 25px;
-  height: 25px;
-  opacity: 0.2;
-  border-radius: 50%;
-  animation: float 12s infinite ease-in-out;
-}
+    .floating-dot {
+      position: absolute;
+      background: radial-gradient(circle, #ffc7da 20%, transparent 70%);
+      width: 25px;
+      height: 25px;
+      opacity: 0.2;
+      border-radius: 50%;
+      animation: float 12s infinite ease-in-out;
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translateY(-100px) scale(1.2);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.2;
-  }
-}
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+
+      50% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+    }
+
     #moodboard {
-  padding: 6rem 2rem;
-  text-align: center;
-  background: #111;
-  border-radius: 12px;
-  margin: 4rem auto;
-  max-width: 900px;
-  box-shadow: 0 0 20px #ff85a2;
-}
+      padding: 6rem 2rem;
+      text-align: center;
+      background: #111;
+      border-radius: 12px;
+      margin: 4rem auto;
+      max-width: 900px;
+      box-shadow: 0 0 20px #ff85a2;
+    }
 
-#moodboard h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  color: #ff85a2;
-  margin-bottom: 1rem;
-}
+    #moodboard h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #ff85a2;
+      margin-bottom: 1rem;
+    }
 
-#moodboard p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #e0c1d9;
-}
+    #moodboard p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #e0c1d9;
+    }
 
-.moodboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  justify-items: center;
-}
-
-.moodboard-grid img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #ff85a2;
-  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.moodboard-grid img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 30px rgba(255, 133, 162, 0.8);
-}
-
-  #cat-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-size: 1.8rem;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease-out;
-}
-
+    #cat-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 1.8rem;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease-out;
+    }
   </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
   <div id="cat-cursor">🐱</div>
-  
+
   <div class="floating-bg">
-  <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-  <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
-  <div class="floating-dot" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
-  <div class="floating-dot" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
-  <div class="floating-dot" style="top: 60%; left: 60%; animation-delay: 8s;"></div>
-</div>
-  
-  <div style="
+    <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
+    <div class="floating-dot" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
+    <div class="floating-dot" style="top: 60%; left: 60%; animation-delay: 8s;"></div>
+  </div>
+
+  <div
+    style="
     position: fixed;
     top: 20%;
     left: 10px;
@@ -289,15 +288,19 @@
     width: 160px;
     font-size: 0.9rem;
     z-index: 999;
-    box-shadow: 0 0 10px rgba(255,133,162,0.4);">
-    <strong>Now Building:</strong><br>
+    box-shadow: 0 0 10px rgba(255,133,162,0.4);
+  ">
+    <strong>Now Building:</strong><br />
     Personal Trading Bot
   </div>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <header>
     <h1>Oluwanifemi Fabunmi</h1>
-    <p>Double major in Computer Science & Finance at Clarkson University. I am very passionate about blending analytical power with creative tech, AI, fintech, designing smart and intuitive systems with personality that also actually feel good to use.</p>
+    <p>
+      Double major in Computer Science & Finance at Clarkson University. I am very passionate about
+      blending analytical power with creative tech, AI, fintech, designing smart and intuitive systems
+      with personality that also actually feel good to use.
+    </p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -309,262 +312,171 @@
   </header>
 
   <section id="about">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
+    <hr
+      style="
+      border: none;
+      height: 2px;
+      background: #ff85a2;
+      width: 60%;
+      margin: 4rem auto;
+      border-radius: 5px;
+    " />
     <h2>About Me</h2>
-    <div class="scrapbook-photo-row">
-    <div class="scrapbook-photo">
-      <img src="/images/nifemi.jpg" alt="Nifemi">
-      <div class="tape top-left"></div>
-      <div class="tape top-right"></div>
-      <div class="caption">Probably dreaming in Python and pink 💭💻🌸</div>
+    <div class="unified-image-grid">
+      <img src="/images/nifemi.jpg" alt="Nifemi" />
+      <img src="/images/nifemi2.jpg" alt="Nifemi smiling in black top" />
+      <img src="/images/nifemi3.jpg" alt="Nifemi with bubble tea" />
     </div>
-    <div class="scrapbook-photo">
-    <img src="/images/nifemi2.jpg" alt="Nifemi smiling in black top">
-    <div class="tape top-left"></div>
-    <div class="tape top-right"></div>
-    <div class="caption">Manifesting clean commits, good grades, and clear skin 💅🏾🌸</div>
-  </div>
-  <div class="scrapbook-photo">
-    <img src="/images/nifemi3.jpg" alt="Nifemi with bubble tea">
-    <div class="tape top-left"></div>
-    <div class="tape top-right"></div>
-    <div class="caption">Me after finally fixing a bug that ruined my night 💻😅</div>
-  </div>
 
-            <br><br>
-    <p>I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York). 
-      <br><br>
-      I’ve developed algorithmic trading tools, financial dashboards, and fraud detection models. I’m also co-founder of Clarkson’s African Student Union and a member of NSBE (National Society of Black Engineers) and SWE (Society of Women Engineers). I bring energy, community, and curiosity into every project.<br><br>
-    Right now, I’m exploring the intersection of quantitative finance (trading and research), machine learning, Artificial Intelligence, Data minning, visual storytelling and dreaming up tools that make data feel intuitive and empowering.</p>
-    <br><br>
+    <br /><br />
+    <p>
+      I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major
+      in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York).
+      <br /><br />
+      I’ve developed algorithmic trading tools, financial dashboards, and fraud detection models. I’m
+      also co-founder of Clarkson’s African Student Union and a member of NSBE (National Society of Black
+      Engineers) and SWE (Society of Women Engineers). I bring energy, community, and curiosity into every
+      project.
+      <br /><br />
+      Right now, I’m exploring the intersection of quantitative finance (trading and research), machine
+      learning, Artificial Intelligence, Data minning, visual storytelling and dreaming up tools that make
+      data feel intuitive and empowering.
+    </p>
+    <br /><br />
     <a class="button" href="resume.pdf" download>Download Resume</a>
-    <br><br>
+    <br /><br />
     <a class="button" href="https://github.com/nifemifabunmi" target="_blank">Visit My GitHub</a>
   </section>
 
   <section id="projects">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
+    <hr
+      style="
+      border: none;
+      height: 2px;
+      background: #ff85a2;
+      width: 60%;
+      margin: 4rem auto;
+      border-radius: 5px;
+    " />
     <h2>Projects</h2>
-    <div class="project-grid">
+    <div class="unified-image-grid">
       <div class="project">
-        <img src="/images/trading-app.png" alt="Algorithmic Trading App">
+        <img src="/images/trading-app.png" alt="Algorithmic Trading App" />
         <h3>Algorithmic Trading App</h3>
-        <p>Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs. Currently ~40% accurate with market predictions — working on integrating reinforcement learning to boost performance.</p>
+        <p>
+          Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting,
+          and dynamic indicators powered by live financial data APIs. Currently ~40% accurate with market
+          predictions — working on integrating reinforcement learning to boost performance.
+        </p>
       </div>
 
       <div class="project">
-         <img src="/images/bomblab.png" alt="Bomblab Defusal">
+        <img src="/images/bomblab.png" alt="Bomblab Defusal" />
         <h3>Bomb Defusal Lab</h3>
-        <p>Disassembled and debugged binary phases (1–6) using C. Achieved 100% accuracy and reduced disassembly time by 40% with optimized logic routines.</p>
+        <p>
+          Disassembled and debugged binary phases (1–6) using C. Achieved 100% accuracy and reduced
+          disassembly time by 40% with optimized logic routines.
+        </p>
       </div>
-      
-       <div class="project">
-         <h3>Stock Market Dashboard and Investment Insights </h3>
-        <p>Interactive dashboards using Tableau and Excel, over 10 years of financial data analyzed for investor-ready insights with 92% trend identification accuracy.</p>
+
+      <div class="project">
+        <h3>Stock Market Dashboard and Investment Insights </h3>
+        <p>
+          Interactive dashboards using Tableau and Excel, over 10 years of financial data analyzed for
+          investor-ready insights with 92% trend identification accuracy.
+        </p>
       </div>
-      
+
       <div class="project">
         <h3>Fraud Detection Model</h3>
-        <p>Trained a Python ML model using scikit-learn to flag anomalies in transaction datasets. Achieved 84% precision; next goal: reducing false positives with neural net integration.</p>
+        <p>
+          Trained a Python ML model using scikit-learn to flag anomalies in transaction datasets. Achieved
+          84% precision; next goal: reducing false positives with neural net integration.
+        </p>
       </div>
-      
+
       <div class="project">
         <h3>File-Based Web Browser</h3>
-        <p>C++ prototype with modular navigation commands and text formatting. Reached 85% command accuracy and cut response lag by 30%.</p>
+        <p>
+          C++ prototype with modular navigation commands and text formatting. Reached 85% command
+          accuracy and cut response lag by 30%.
+        </p>
       </div>
-      
+
       <div class="project">
         <h3>Inventory Tracking System</h3>
-        <p>Designed in C++ using structs, vectors, and file I/O. Provided 78.6% accuracy on inventory updates, with a 30% faster processing time.</p>
+        <p>
+          Designed in C++ using structs, vectors, and file I/O. Provided 78.6% accuracy on inventory
+          updates, with a 30% faster processing time.
+        </p>
       </div>
-    
     </div>
   </section>
 
-    <section id="moodboard">
-  <h2>Moodboard & Inspirations ✨</h2>
-  <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem auto;">
-    A collage of coding vibes, K-Drama aesthetics, and creative sparks that keep me going.
-  </p>
-  <div class="moodboard-grid">
-    <img src="/images/coding.jpeg" alt="Code aesthetic 1" />
-    <img src="/images/inspo2.jpeg" alt="Coding setup" />
-    <img src="/images/kdrama2.jpeg" alt="K-Drama inspiration 2" />
-    <img src="/images/inspo.jpeg" alt="Pinterest inspiration" />
-    <img src="/images/flower.jpeg" alt="Pink flowers" />
-  </div>
-</section>
-
-   <section id="gallery">
-    <h2>Creative & Certification Gallery 🎨📜</h2>
-    <p style="margin-bottom: 2rem; color: #ccc; max-width: 700px; margin-left: auto; margin-right: auto;">
-      A cozy corner for showcasing everything beyond code — from digital art and design to certifications and creative side quests. Click any image for a closer look!
-    <br><br>
+  <section id="moodboard">
+    <h2>Moodboard & Inspirations ✨</h2>
+    <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem auto;">
+      A collage of coding vibes, K-Drama aesthetics, and creative sparks that keep me going.
     </p>
-    <div class="project-grid">
+    <div class="unified-image-grid">
+      <img src="/images/coding.jpeg" alt="Code aesthetic 1" />
+      <img src="/images/inspo2.jpeg" alt="Coding setup" />
+      <img src="/images/kdrama2.jpeg" alt="K-Drama inspiration 2" />
+      <img src="/images/inspo.jpeg" alt="Pinterest inspiration" />
+      <img src="/images/flower.jpeg" alt="Pink flowers" />
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Creative & Certification Gallery 🎨📜</h2>
+    <p
+      style="
+      margin-bottom: 2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    ">
+      A cozy corner for showcasing everything beyond code — from digital art and design to certifications
+      and creative side quests. Click any image for a closer look!
+      <br /><br />
+    </p>
+    <div class="unified-image-grid">
       <div class="project">
-        <img src="/images/zscaler-cert.png" alt="Zscaler Cybersecurity Certificate">
-        <p class="caption">Zscaler Certified – zero trust architecture, secured traffic & remote access 🌸</p>
+        <img src="/images/zscaler-cert.png" alt="Zscaler Cybersecurity Certificate" />
+        <p class="caption">
+          Zscaler Certified – zero trust architecture, secured traffic & remote access 🌸
+        </p>
       </div>
-      <br><br>
-      
+
       <div class="project">
-        <img src="/images/microsoft-cert.png" alt="Microsoft C# Certification">
+        <img src="/images/microsoft-cert.png" alt="Microsoft C# Certification" />
         <p class="caption">Microsoft Foundational C# Certificate – earned July 2025 💻✨</p>
       </div>
-      <br><br>
-      
+
       <div class="project">
-        <img src="/images/sketchbook-page.jpg" alt="Sketchbook Doodles">
+        <img src="/images/sketchbook-page.jpg" alt="Sketchbook Doodles" />
         <p class="caption">Late night thoughts + rough UI mockups 🧠📓</p>
       </div>
-      <br><br>
-      
+
       <div class="project">
-        <img src="/images/cert-upcoming.jpeg" alt="Placeholder for upcoming cert">
+        <img src="/images/cert-upcoming.jpeg" alt="Placeholder for upcoming cert" />
         <p class="caption">More certs coming soon... because learning never stops 🤍</p>
       </div>
     </div>
   </section>
 
-    <section id="learning">
-  <h2>What I’m Learning 📚</h2>
-  <p style="max-width: 700px; margin: 0 auto; color: #ccc;">
-    Right now, I’m deep-diving into reinforcement learning for algorithmic trading.
-    <br><br> I am also working on an externship with Beats by Dre working on qualitative and quantitave analysis while personally brushing up on SQL joins (they're still tricky sometimes 😅).
-    <br><br> I am building out my C++ project to strengthen low-level memory management skills.
-    <br><br>
-     Between debugging code and analyzing market trends, I’m also carving out time for self-care, K-dramas, and babysitting.
-  I'm also watching lots of animes, youtube comedies, twitch live and rewatching a lot of shows and 1960s up to early 2000s movies including shows like Criminal Minds, Gilmore girls and The vampire diaries, because I deserve a break. 🥲✨
-  </p>
-</section>
-
-  <section id="contact">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
-    <h2>Get In Touch</h2>
-    <p>Let’s build something meaningful. Whether you’re looking for a creative collaborator, hiring for an internship, or just want to talk shop or K-dramas 😌. 
-      <br><br>Email me at <a href="mailto:oluwanifemifabunmi6@gmail.com">oluwanifemifabunmi6@gmail.com</a> or connect via <a href="https://www.linkedin.com/in/nifemif-b76a34243/">LinkedIn</a>.
-      </p>
-    <button id="funFactBtn" class="button">Click Me 🧠💕</button>
-    <p id="funFactDisplay"></p>
-  </section>
-
-  <section id="quote-rotator" style="padding: 2rem; text-align: center; background: #111; color: #ff85a2; font-style: italic; font-size: 1.25rem; max-width: 700px; margin: 2rem auto; border-radius: 10px; box-shadow: 0 0 15px #ff85a2;">
-  <p id="quote-text">Loading inspirational quote...</p>
-</section>
-
-<script>
-  const quotes = [
-    "“Code is like humor. When you have to explain it, it’s bad.” – Cory House",
-    "“Simplicity is the soul of efficiency.” – Austin Freeman",
-    "“First, solve the problem. Then, write the code.” – John Johnson",
-    "“Talk is cheap. Show me the code.” – Linus Torvalds",
-    "“The heart is a strange beast. It can carry you through hell.” – Dr. Spencer Reid",
-    "“Experience is the name everyone gives to their mistakes.” – Oscar Wilde",
-    "“In investing, what is comfortable is rarely profitable.” – Robert Arnott",
-    "“The mind is a powerful thing. It can convince you of things that aren’t true.” – Dr. Spencer Reid",
-    "“You can’t change the past, but you can learn from it.” – Emily Prentiss",
-    "“Life's short. Talk fast.” – Lorelai Gilmore, Gilmore Girls",
-    "“Risk comes from not knowing what you’re doing.” – Warren Buffett",
-    "“The greatest weapon against stress is our ability to choose one thought over another.” – Jason Gideon",
-    "“The mind is like a parachute; it only works when open.” – Jason Gideon",
-    "“Stay curious, stay coding.” – Nifemi Fabunmi 💖"
-  ];
-  let index = 0;
-  const quoteText = document.getElementById('quote-text');
-
-  function showNextQuote() {
-    quoteText.style.opacity = 0;
-    setTimeout(() => {
-      quoteText.textContent = quotes[index];
-      quoteText.style.opacity = 1;
-      index = (index + 1) % quotes.length;
-    }, 600);
-  }
-
-  setInterval(showNextQuote, 7000);
-  window.onload = showNextQuote;
-</script>
-
-        <br><br>
-    <section id="playlist" style="padding: 4rem 2rem; text-align: center; background-color: #111;">
-  <h2 style="color: #ff85a2; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">
-    My Coding Playlist 🎶
-  </h2>
-  <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 2rem;">
-    Music that powers my late night bug-fixing, brainstorming, and dreaming 💭💻🌸
-  </p>
-  <iframe style="border-radius:12px" 
-    src="https://open.spotify.com/embed/playlist/7Issm5A1kcMKVlfRbeNc13?utm_source=generator" 
-    width="80%" height="352" frameBorder="0" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
-  </iframe>
-</section>
-
-  <footer>
-    © 2025 Oluwanifemi Fabunmi · Built with love, JavaScript, and lots of pink energy 💖
-  </footer>
-
-  <script>
-    const facts = [
-      "I once debugged a bug at 3AM with only ramen and BTS music.",
-      "My favorite data structure is the hash map (because fast lookups, duh).",
-      "I’m developing a machine learning model to support smart trading decisions.",
-      "My dream is to adopt a ragdoll cat and name it Satoshi 🐱",
-      "K-dramas while coding = perfect productivity boost."
-    ];
-
-    const btn = document.getElementById("funFactBtn");
-    const display = document.getElementById("funFactDisplay");
-
-    btn.addEventListener("click", () => {
-      const randomIndex = Math.floor(Math.random() * facts.length);
-      display.style.opacity = 0;
-      setTimeout(() => {
-        display.textContent = facts[randomIndex];
-        display.style.opacity = 1;
-      }, 200);
-    });
-  </script>
-    
-    <script>
-  const catCursor = document.getElementById('cat-cursor');
-
-  document.addEventListener('mousemove', (e) => {
-    catCursor.style.transform = `translate(${e.clientX + 10}px, ${e.clientY + 10}px)`;
-  });
-      @keyframes glowMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-header h1 {
-  background: linear-gradient(90deg, #ff85a2, #ffc7da, #ff85a2);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowMove 4s ease-in-out infinite alternate;
-  text-shadow: 0 0 12px rgba(255, 133, 162, 0.5);
-}
-</script>
-
-    <div style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a1a1a;
-  color: #ffc7da;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  box-shadow: 0 0 10px rgba(255,133,162,0.3);">
-  📚 Learning: Reinforcement Learning + C++ Boost
-</div>
-
-</body>
-</html>
+  <section id="learning">
+    <h2>What I’m Learning 📚</h2>
+    <p style="max-width: 700px; margin: 0 auto; color: #ccc;">
+      Right now, I’m deep-diving into reinforcement learning for algorithmic trading.
+      <br /><br />
+      I am also working on an externship with Beats by Dre working on qualitative and quantitave analysis
+      while personally brushing up on SQL joins (they're still tricky sometimes 😅).
+      <br /><br />
+      I am building out my C++ project to strengthen low-level memory management skills.
+      <br /><br />
+      Between debugging code and analyzing market trends, I’m also carving out time for self-care,
+      K-dramas, and babysitting. I'm also watching lots of animes, youtube comedies, twitch live and
+      rewatching a lot of shows and 1960s up to early 2000s movies including shows like Criminal Minds,
+      Gilmore girls and The vampire diaries, because
