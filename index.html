@@ -69,20 +69,20 @@
     .scrapbook-photo-row {
       display: flex;        /* Make the container a flexbox */
       justify-content: center;
-      flex-wrap: nowrap;
-      gap: 2.5rem;
+      flex-wrap: wrap;
+      gap: 2rem;
       margin-top: 2rem;
     }
     .scrapbook-photo {
       position: relative;
       display: inline-block;
       margin-bottom: 2rem;
-      flex: 0 0 auto;        /* Prevent flex items from growing or shrinking */
+      /*flex: 0 0 auto;        Prevent flex items from growing or shrinking */
       transform: rotate(-2deg);
     }
     
     .scrapbook-photo img {
-      width: 200px;
+      width: 150px;
       height: auto;
       border: 4px solid #fff;
       border-radius: 8px;
@@ -90,7 +90,7 @@
     }
     .tape {
       position: absolute;
-      width: 60px;
+      width: 50px;
       height: 20px;
       background: #ff85a2;
       opacity: 0.7;
