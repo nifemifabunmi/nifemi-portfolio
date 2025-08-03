@@ -141,6 +141,13 @@
       font-size: 1.5rem;
       color: #ffffff;
     }
+
+   /* GitHub icon style next to project titles */
+.project h3 a::after {
+  content: " 🔗"; /* simple link icon */
+  font-size: 1.1rem;
+  margin-left: 6px;
+}
     .project p {
       font-size: 1rem;
       color: #d6d6d6;
@@ -332,11 +339,20 @@
   </div>
 
             <br><br>
+     <p style="max-width: 700px; margin: 2rem auto; color: #f5f5f5; font-size: 1.1rem; line-height: 1.6;">
+    Hey there! I’m Nifemi — a curious double major in Computer Science and Finance at Clarkson University, blending the analytical rigor of numbers with creative tech to build smart, intuitive, and yes, even beautiful systems.  
+    <br><br>
+    When I’m not diving deep into algorithmic trading models or fine-tuning fraud detection, you’ll find me immersed in K-dramas, sketching UI ideas, or daydreaming about adopting a fluffy ragdoll cat named Satoshi.  
+    <br><br>
+    I believe that data isn’t just numbers — it’s stories waiting to be told, and I’m here to translate those stories into tools that feel human and empowering. With a dash of pink energy and a whole lot of passion, I’m crafting a future where tech meets heart
     <p>I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York). 
       <br><br>
       I’ve developed algorithmic trading tools, financial dashboards, and fraud detection models. I’m also co-founder of Clarkson’s African Student Union and a member of NSBE (National Society of Black Engineers) and SWE (Society of Women Engineers). I bring energy, community, and curiosity into every project.<br><br>
     Right now, I’m exploring the intersection of quantitative finance (trading and research), machine learning, Artificial Intelligence, Data minning, visual storytelling and dreaming up tools that make data feel intuitive and empowering.</p>
     <br><br>
+       </p>
+         <br><br>
+
     <a class="button" href="resume.pdf" download>Download Resume</a>
     <br><br>
     <a class="button" href="https://github.com/nifemifabunmi" target="_blank">Visit My GitHub</a>
@@ -346,37 +362,54 @@
     <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
     <h2>Projects</h2>
     <div class="project-grid">
-      <div class="project">
-        <img src="/images/trading-app.png" alt="Algorithmic Trading App">
+      
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/algorithmic-trading-app" target="_blank" style="text-decoration:none; color:#ff85a2;">
         <h3>Algorithmic Trading App</h3>
-        <p>Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs. Currently ~40% accurate with market predictions — working on integrating reinforcement learning to boost performance.</p>
-      </div>
+      </a>
+      <p>Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs. I love how this project pushes me to combine finance and AI — it’s like a puzzle I’m obsessed with solving.</p>
+      <p><strong>Tech:</strong> Python, Streamlit, Pandas, REST APIs, Reinforcement Learning (in progress)</p>
+    </div>
 
-      <div class="project">
-         <img src="/images/bomblab.png" alt="Bomblab Defusal">
-        <h3>Bomb Defusal Lab</h3>
-        <p>Disassembled and debugged binary phases (1–6) using C. Achieved 100% accuracy and reduced disassembly time by 40% with optimized logic routines.</p>
-      </div>
-      
-       <div class="project">
-         <h3>Stock Market Dashboard and Investment Insights </h3>
-        <p>Interactive dashboards using Tableau and Excel, over 10 years of financial data analyzed for investor-ready insights with 92% trend identification accuracy.</p>
-      </div>
-      
-      <div class="project">
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/stock-market-dashboard" target="_blank" style="text-decoration:none; color:#ff85a2;">
+        <h3>Stock Market Dashboard and Investment Insights</h3>
+      </a>
+      <p>Interactive dashboards using Tableau and Excel analyzing over 10 years of financial data. I aimed to deliver clear insights for investors, turning complex data into visual stories that empower decisions.</p>
+      <p><strong>Tech:</strong> Tableau, Excel, Data Visualization, Financial Analysis</p>
+    </div>
+
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/fraud-detection-model" target="_blank" style="text-decoration:none; color:#ff85a2;">
         <h3>Fraud Detection Model</h3>
-        <p>Trained a Python ML model using scikit-learn to flag anomalies in transaction datasets. Achieved 84% precision; next goal: reducing false positives with neural net integration.</p>
-      </div>
-      
-      <div class="project">
-        <h3>File-Based Web Browser</h3>
-        <p>C++ prototype with modular navigation commands and text formatting. Reached 85% command accuracy and cut response lag by 30%.</p>
-      </div>
-      
-      <div class="project">
+      </a>
+      <p>Trained a machine learning model in Python using scikit-learn to flag anomalies in transactions. This project taught me the importance of precision and how to balance false positives while protecting users.</p>
+      <p><strong>Tech:</strong> Python, scikit-learn, Machine Learning, Data Cleaning</p>
+    </div>
+
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/GRIND-Engine" target="_blank" style="text-decoration:none; color:#ff85a2;">
+        <h3>GRIND Engine - File-Based Web Browser</h3>
+      </a>
+      <p>A C++ prototype web browser with modular navigation and text formatting commands. It cut response lag by 30%, pushing me to deepen my understanding of systems programming and UI logic.</p>
+      <p><strong>Tech:</strong> C++, Systems Programming, File I/O, Modular Design</p>
+    </div>
+
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/inventory-tracking-system" target="_blank" style="text-decoration:none; color:#ff85a2;">
         <h3>Inventory Tracking System</h3>
-        <p>Designed in C++ using structs, vectors, and file I/O. Provided 78.6% accuracy on inventory updates, with a 30% faster processing time.</p>
-      </div>
+      </a>
+      <p>Designed using C++ structs, vectors, and file I/O to optimize inventory updates with 78.6% accuracy and 30% faster processing. This project helped sharpen my data structure skills and real-world app thinking.</p>
+      <p><strong>Tech:</strong> C++, Data Structures, File I/O, Algorithm Optimization</p>
+    </div>
+
+    <div class="project">
+      <a href="https://github.com/nifemifabunmi/bomb-defusal-lab" target="_blank" style="text-decoration:none; color:#ff85a2;">
+        <h3>Bomb Defusal Lab</h3>
+      </a>
+      <p>Disassembled and debugged binary phases (1–6) using C. I achieved 100% accuracy and cut disassembly time by 40% with optimized logic — a thrilling challenge that honed my debugging skills.</p>
+      <p><strong>Tech:</strong> C, Debugging, Reverse Engineering, Optimization</p>
+    </div>
     
     </div>
   </section>
@@ -568,3 +601,4 @@ header h1 {
 
 </body>
 </html>
+
