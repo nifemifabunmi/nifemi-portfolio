@@ -30,7 +30,10 @@
       position: fixed;
       top: 0;
       left: 0;
-      font-size: 1.8rem;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ff85a2 0%, #ffc7da 50%, transparent 70%);
+      border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
       transition: transform 0.1s ease-out;
@@ -468,12 +471,11 @@
       font-size: 1.3rem;
       color: #ff85a2;
       line-height: 1.6;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-    .quote-text.visible {
-      opacity: 1;
+      transition: all 0.5s ease;
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Responsive Design */
@@ -516,7 +518,292 @@
       transition: transform 0.1s ease;
     }
 
-    /* CTA Buttons */
+    /* Skills Section Styles */
+    .skills-container {
+      margin-top: 4rem;
+    }
+
+    .skill-category {
+      margin-bottom: 4rem;
+    }
+
+    .skill-category-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #ff85a2;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-item {
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(40, 40, 40, 0.4));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 133, 162, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      border-color: rgba(255, 133, 162, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .skill-percentage {
+      color: #ff85a2;
+      font-weight: 500;
+    }
+
+    .skill-bar {
+      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-progress {
+      background: linear-gradient(90deg, #ff85a2, #ffc7da);
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 0 10px rgba(255, 133, 162, 0.4);
+    }
+
+    .skill-details {
+      color: rgba(214, 214, 214, 0.9);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Learning Section */
+    .learning-section {
+      margin-top: 6rem;
+      padding: 3rem;
+      background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(26, 26, 26, 0.4));
+      border-radius: 24px;
+      border: 1px solid rgba(255, 133, 162, 0.1);
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .learning-item {
+      background: rgba(255, 133, 162, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 133, 162, 0.15);
+    }
+
+    .learning-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .learning-name {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .learning-percentage {
+      color: #ffc7da;
+      font-weight: 500;
+    }
+
+    .learning-bar {
+      background: rgba(255, 255, 255, 0.1);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .learning-progress {
+      background: linear-gradient(90deg, #ffc7da, #ff85a2);
+      height: 100%;
+      border-radius: 3px;
+      width: 0%;
+      transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Leopard Pattern Accents */
+    .leopard-accent {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leopard-accent::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 133, 162, 0.15) 8px, transparent 8px),
+        radial-gradient(circle at 60% 70%, rgba(255, 199, 218, 0.1) 6px, transparent 6px),
+        radial-gradient(circle at 80% 20%, rgba(255, 133, 162, 0.12) 10px, transparent 10px),
+        radial-gradient(circle at 35% 90%, rgba(255, 199, 218, 0.08) 7px, transparent 7px),
+        radial-gradient(circle at 15% 80%, rgba(255, 133, 162, 0.1) 9px, transparent 9px);
+      background-size: 120px 120px, 80px 80px, 150px 150px, 100px 100px, 110px 110px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .leopard-accent:hover::before {
+      opacity: 1;
+    }
+
+    /* Readymag-style Grid Overlays */
+    .grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 133, 162, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 133, 162, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .section:hover .grid-overlay {
+      opacity: 1;
+    }
+
+    /* Floating geometric shapes */
+    .geometric-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .geometric-shape {
+      position: absolute;
+      opacity: 0.1;
+      animation: geometricFloat 25s infinite linear;
+    }
+
+    .geometric-triangle {
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 25px solid #ff85a2;
+    }
+
+    .geometric-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff85a2, #ffc7da);
+    }
+
+    .geometric-square {
+      width: 20px;
+      height: 20px;
+      background: #ffc7da;
+      transform: rotate(45deg);
+    }
+
+    @keyframes geometricFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.1;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Enhanced section transitions */
+    .section {
+      position: relative;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff85a2, transparent);
+      transition: left 0.8s ease;
+    }
+
+    .section.in-view::before {
+      left: 100%;
+    }
+
+    /* Readymag-style magnetic buttons */
+    .magnetic-btn {
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .magnetic-btn:hover {
+      transform: translate3d(0, -3px, 0) scale(1.02);
+    }
+    .project-metrics {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 133, 162, 0.9);
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover .project-metrics {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -558,9 +845,16 @@
   <div class="scroll-indicator"></div>
   
   <!-- Custom Cursor -->
-  <div id="cat-cursor">🐱</div>
+  <div id="cat-cursor"></div>
   
-  <!-- Floating Background -->
+  <!-- Geometric Background -->
+  <div class="geometric-bg">
+    <div class="geometric-shape geometric-triangle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="geometric-shape geometric-circle" style="top: 40%; left: 80%; animation-delay: 5s;"></div>
+    <div class="geometric-shape geometric-square" style="top: 70%; left: 20%; animation-delay: 10s;"></div>
+    <div class="geometric-shape geometric-triangle" style="top: 80%; left: 70%; animation-delay: 15s;"></div>
+    <div class="geometric-shape geometric-circle" style="top: 10%; left: 60%; animation-delay: 20s;"></div>
+  </div>
   <div class="floating-bg">
     <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
     <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
@@ -574,9 +868,9 @@
   <!-- Navigation -->
   <nav class="nav-bar">
     <div class="nav-content">
-      <div class="nav-logo">NF</div>
+      <div class="nav-logo">O.F</div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -601,16 +895,210 @@
       Double major in Computer Science & Finance at Clarkson University. I blend analytical power with creative tech, crafting AI-driven fintech solutions that feel as good as they perform.
     </p>
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a href="#projects" class="cta-button">View My Work</a>
-      <a href="/resume.pdf" class="cta-button cta-secondary" download>Download Resume</a>
+      <a href="#projects" class="cta-button magnetic-btn">View My Work</a>
+      <a href="/resume.pdf" class="cta-button cta-secondary magnetic-btn" download>Download Resume</a>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- Skills Section -->
+  <section class="section leopard-accent" id="skills">
+    <div class="grid-overlay"></div>
+    <div class="section-header">
+      <h2 class="heading-xl section-title">Skills & Technologies</h2>
+      <p class="body-lg section-subtitle">My technical toolkit and areas of expertise</p>
+    </div>
+
+    <div class="skills-container">
+      <!-- Programming Languages -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Programming Languages</h3>
+        <div class="skills-grid">
+          <div class="skill-item" data-level="90">
+            <div class="skill-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+            <div class="skill-details">Data Analysis, ML, Algorithmic Trading</div>
+          </div>
+
+          <div class="skill-item" data-level="85">
+            <div class="skill-header">
+              <span class="skill-name">C++</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+            <div class="skill-details">Systems Programming, Modular Design, File I/O</div>
+          </div>
+
+          <div class="skill-item" data-level="80">
+            <div class="skill-header">
+              <span class="skill-name">C</span>
+              <span class="skill-percentage">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+            <div class="skill-details">Debugging, Reverse Engineering, Optimization</div>
+          </div>
+
+          <div class="skill-item" data-level="75">
+            <div class="skill-header">
+              <span class="skill-name">Java</span>
+              <span class="skill-percentage">75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="75"></div>
+            </div>
+            <div class="skill-details">Forage Midas project, Object-oriented design</div>
+          </div>
+
+          <div class="skill-item" data-level="70">
+            <div class="skill-header">
+              <span class="skill-name">SQL</span>
+              <span class="skill-percentage">70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="70"></div>
+            </div>
+            <div class="skill-details">Data querying, joins, basic DB management</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data & Finance -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Data Science & Finance</h3>
+        <div class="skills-grid">
+          <div class="skill-item" data-level="88">
+            <div class="skill-header">
+              <span class="skill-name">Data Analysis</span>
+              <span class="skill-percentage">88%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="88"></div>
+            </div>
+            <div class="skill-details">Pandas, Matplotlib, Seaborn</div>
+          </div>
+
+          <div class="skill-item" data-level="82">
+            <div class="skill-header">
+              <span class="skill-name">Machine Learning</span>
+              <span class="skill-percentage">82%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="82"></div>
+            </div>
+            <div class="skill-details">scikit-learn, Reinforcement Learning basics</div>
+          </div>
+
+          <div class="skill-item" data-level="85">
+            <div class="skill-header">
+              <span class="skill-name">Algorithmic Trading</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+            <div class="skill-details">Quantitative Finance, Trading Strategies</div>
+          </div>
+
+          <div class="skill-item" data-level="90">
+            <div class="skill-header">
+              <span class="skill-name">Data Visualization</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+            <div class="skill-details">Tableau, Excel, Interactive Dashboards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Web Development</h3>
+        <div class="skills-grid">
+          <div class="skill-item" data-level="85">
+            <div class="skill-header">
+              <span class="skill-name">Frontend Development</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+            <div class="skill-details">HTML, CSS, JavaScript, Responsive Design</div>
+          </div>
+
+          <div class="skill-item" data-level="80">
+            <div class="skill-header">
+              <span class="skill-name">Streamlit</span>
+              <span class="skill-percentage">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+            <div class="skill-details">Interactive dashboards & trading apps</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Learning Progress -->
+    <div class="learning-section">
+      <h3 class="skill-category-title">Currently Learning</h3>
+      <div class="learning-grid">
+        <div class="learning-item">
+          <div class="learning-header">
+            <span class="learning-name">Reinforcement Learning</span>
+            <span class="learning-percentage">65%</span>
+          </div>
+          <div class="learning-bar">
+            <div class="learning-progress" data-width="65"></div>
+          </div>
+        </div>
+
+        <div class="learning-item">
+          <div class="learning-header">
+            <span class="learning-name">C++ Memory Management</span>
+            <span class="learning-percentage">60%</span>
+          </div>
+          <div class="learning-bar">
+            <div class="learning-progress" data-width="60"></div>
+          </div>
+        </div>
+
+        <div class="learning-item">
+          <div class="learning-header">
+            <span class="learning-name">Advanced SQL</span>
+            <span class="learning-percentage">70%</span>
+          </div>
+          <div class="learning-bar">
+            <div class="learning-progress" data-width="70"></div>
+          </div>
+        </div>
+
+        <div class="learning-item">
+          <div class="learning-header">
+            <span class="learning-name">UI/UX Design</span>
+            <span class="learning-percentage">45%</span>
+          </div>
+          <div class="learning-bar">
+            <div class="learning-progress" data-width="45"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section" id="about">
     <div class="section-header">
       <h2 class="heading-xl section-title">About Me</h2>
-      <p class="body-lg section-subtitle">Building the future where Technology meets heart</p>
+      <p class="body-lg section-subtitle">Building the future where tech meets heart</p>
     </div>
     
     <div class="about-content">
@@ -624,14 +1112,14 @@
       </div>
       
       <div class="about-text">
-        <p>Hey there! I'm Nifemi, a curious builder blending the analytical rigor of finance with the creative potential of technology to craft intelligent, intuitive systems.</p>
+        <p>Hey there! I'm Nifemi — a curious builder blending the analytical rigor of finance with the creative potential of technology to craft intelligent, intuitive systems.</p>
         
         <p>When I'm not diving deep into algorithmic trading models or fine-tuning fraud detection systems, you'll find me immersed in K-dramas, sketching UI concepts, or daydreaming about adopting a fluffy ragdoll cat named Satoshi.</p>
         
         <p>I believe data isn't just numbers — it's stories waiting to be told. I'm here to translate those stories into tools that feel human and empowering, one line of code at a time.</p>
         
         <div style="margin-top: 2rem;">
-          <a href="https://github.com/nifemifabunmi" class="cta-button cta-secondary" target="_blank">
+          <a href="https://github.com/nifemifabunmi" class="cta-button cta-secondary magnetic-btn" target="_blank">
             Visit GitHub →
           </a>
         </div>
@@ -649,6 +1137,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image"></div>
+        <div class="project-metrics">40% faster decisions</div>
         <div class="project-content">
           <h3 class="project-title">Algorithmic Trading App</h3>
           <p class="project-description">Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs.</p>
@@ -667,6 +1156,7 @@
 
       <div class="project-card">
         <div class="project-image"></div>
+        <div class="project-metrics">98% anomaly detection</div>
         <div class="project-content">
           <h3 class="project-title">Fraud Detection Model</h3>
           <p class="project-description">Trained a machine learning model to flag transaction anomalies with high precision, balancing false positives while protecting users.</p>
@@ -684,6 +1174,7 @@
 
       <div class="project-card">
         <div class="project-image"></div>
+        <div class="project-metrics">30% faster response</div>
         <div class="project-content">
           <h3 class="project-title">GRIND Engine</h3>
           <p class="project-description">A C++ prototype web browser with modular navigation and text formatting. Reduced response lag by 30% through optimized architecture.</p>
@@ -701,6 +1192,7 @@
 
       <div class="project-card">
         <div class="project-image"></div>
+        <div class="project-metrics">10+ years analyzed</div>
         <div class="project-content">
           <h3 class="project-title">Stock Market Dashboard</h3>
           <p class="project-description">Interactive dashboards analyzing 10+ years of financial data, delivering clear insights through compelling visual storytelling.</p>
@@ -711,6 +1203,42 @@
             <span class="tech-tag">Financial Analysis</span>
           </div>
           <a href="https://github.com/nifemifabunmi/stock-market-dashboard" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-metrics">78.6% accuracy boost</div>
+        <div class="project-content">
+          <h3 class="project-title">Inventory Tracking System</h3>
+          <p class="project-description">Designed using C++ structs, vectors, and file I/O to optimize inventory updates with enhanced accuracy and faster processing.</p>
+          <div class="project-tech">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Data Structures</span>
+            <span class="tech-tag">File I/O</span>
+            <span class="tech-tag">Algorithm Optimization</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/inventory-tracking-system" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-metrics">100% success rate</div>
+        <div class="project-content">
+          <h3 class="project-title">Bomb Defusal Lab</h3>
+          <p class="project-description">Disassembled and debugged binary phases using C. Achieved 100% accuracy and reduced disassembly time through optimized logic.</p>
+          <div class="project-tech">
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">Debugging</span>
+            <span class="tech-tag">Reverse Engineering</span>
+            <span class="tech-tag">Optimization</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/bomb-defusal-lab" class="project-link" target="_blank">
             View Project →
           </a>
         </div>
@@ -741,9 +1269,13 @@
     </div>
   </section>
 
-  <!-- Quote Section -->
+  <!-- Interactive Skills Section -->
   <section class="quote-section">
-    <p class="quote-text" id="quote-text"> Loading Quotes...</p>
+    <h3 style="color: #ff85a2; font-size: 1.5rem; margin-bottom: 1rem;">Current Mood</h3>
+    <p class="quote-text" id="mood-text">Click to see what I'm vibing with today ✨</p>
+    <button id="moodBtn" class="cta-button cta-secondary" style="margin-top: 1.5rem;">
+      What's My Vibe? 🌸
+    </button>
   </section>
 
   <!-- Contact Section -->
@@ -767,7 +1299,7 @@
         </a>
       </div>
 
-      <button id="funFactBtn" class="cta-button" style="margin-top: 2rem;">
+      <button id="funFactBtn" class="cta-button magnetic-btn" style="margin-top: 2rem;">
         Random Fact About Me ✨
       </button>
       <p id="funFactDisplay" style="margin-top: 1rem; min-height: 2rem; color: #ffc7da;"></p>
@@ -788,56 +1320,85 @@
       document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrollPercent / 100})`;
     });
 
-    // Custom Cursor
+    // Custom Cursor Movement
     const catCursor = document.getElementById('cat-cursor');
     document.addEventListener('mousemove', (e) => {
-      catCursor.style.transform = `translate(${e.clientX + 10}px, ${e.clientY + 10}px)`;
+      catCursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
     });
 
-    // Quote Rotator
-    const quotes = [
-      ""Code is like humor. When you have to explain it, it's bad." – Cory House",
-      ""Simplicity is the soul of efficiency." – Austin Freeman",
-      ""First, solve the problem. Then, write the code." – John Johnson",
-      ""The heart is a strange beast. It can carry you through hell." – Dr. Spencer Reid",
-      ""Life's short. Talk fast." – Lorelai Gilmore",
-      ""Risk comes from not knowing what you're doing." – Warren Buffett",
-      ""Stay curious, stay coding." – Nifemi Fabunmi 💖"
+    // Current Track Simulator
+    const tracks = [
+      "🎵 BTS - Dynamite (perfect for debugging energy)",
+      "🎧 Lofi Girl - Study Beats (deep focus mode activated)",
+      "🎵 NewJeans - Super Shy (K-pop productivity boost)",
+      "🎧 Chillhop Essentials (late night coding vibes)",
+      "🎵 BLACKPINK - Pink Venom (girl boss energy)",
+      "🎧 Coffee Shop Jazz (algorithm brainstorming mode)",
+      "🎵 IU - Through the Night (peaceful debugging)",
+      "🎧 Synthwave Retrowave (cyberpunk coding aesthetic)"
     ];
 
-    let quoteIndex = 0;
-    const quoteText = document.getElementById('quote-text');
-
-    function showNextQuote() {
-      quoteText.classList.remove('visible');
+    document.getElementById("trackBtn")?.addEventListener("click", () => {
+      const display = document.getElementById("current-track");
+      const randomIndex = Math.floor(Math.random() * tracks.length);
+      display.style.opacity = 0.3;
+      display.style.transform = "translateY(-5px)";
+      
       setTimeout(() => {
-        quoteText.textContent = quotes[quoteIndex];
-        quoteText.classList.add('visible');
-        quoteIndex = (quoteIndex + 1) % quotes.length;
-      }, 300);
-    }
-
-    setInterval(showNextQuote, 7000);
-    setTimeout(showNextQuote, 500);
-
-    // Fun Facts
-    const facts = [
-      "I once debugged a bug at 3AM with only ramen and BTS music.",
-      "My favorite data structure is the hash map (because fast lookups, duh).",
-      "I'm developing a machine learning model to predict my next K-drama obsession.",
-      "My dream is to adopt a ragdoll cat and name it Satoshi 🐱",
-      "K-dramas while coding = perfect productivity boost."
-    ];
-
-    document.getElementById("funFactBtn").addEventListener("click", () => {
-      const display = document.getElementById("funFactDisplay");
-      const randomIndex = Math.floor(Math.random() * facts.length);
-      display.style.opacity = 0;
-      setTimeout(() => {
-        display.textContent = facts[randomIndex];
+        display.textContent = tracks[randomIndex];
         display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
       }, 200);
     });
+
+    // Interactive Mood/Quote Section
+    const moods = [
+      "Currently debugging life, one console.log at a time 🐛💻",
+      "Manifesting clean code and good vibes ✨🌸",
+      "In my K-drama era while building fintech magic 📺💸",
+      "Fueled by bubble tea and algorithmic dreams 🧋📊",
+      "Living that double major life: finance by day, code by night 🌙💰",
+      "Plotting world domination through elegant data structures 👑📈",
+      "Currently accepting applications for a fluffy co-founder 💼"
+    ];
+
+    document.getElementById("moodBtn").addEventListener("click", () => {
+      const display = document.getElementById("mood-text");
+      const randomIndex = Math.floor(Math.random() * moods.length);
+      display.style.opacity = 0.3;
+      display.style.transform = "translateY(-10px)";
+      setTimeout(() => {
+        display.textContent = moods[randomIndex];
+        display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
+      }, 200);
+    });
+
+    // Fun Facts - Fixed version
+    const facts = [
+      "I once debugged a bug at 3AM with only ramen and BTS music 🍜🎵",
+      "My favorite data structure is the hash map (fast lookups = happy me) ⚡",
+      "I'm secretly training an AI to predict my next K-drama obsession 📺🤖",
+      "My dream is to adopt a ragdoll and name it Satoshi 💕₿",
+      "I can code for 6 hours straight but need 20 minutes to pick a Netflix show 😅"
+    ];
+
+    const funFactBtn = document.getElementById("funFactBtn");
+    const funFactDisplay = document.getElementById("funFactDisplay");
+
+    if (funFactBtn && funFactDisplay) {
+      funFactBtn.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        funFactDisplay.style.opacity = 0;
+        funFactDisplay.style.transform = "translateY(-5px)";
+        
+        setTimeout(() => {
+          funFactDisplay.textContent = facts[randomIndex];
+          funFactDisplay.style.opacity = 1;
+          funFactDisplay.style.transform = "translateY(0)";
+        }, 150);
+      });
+    }
 
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -886,7 +1447,26 @@
       observer.observe(el);
     });
 
-    // Parallax effect for floating dots
+    // Skills Animation
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('.skill-progress, .learning-progress');
+          skillBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            setTimeout(() => {
+              bar.style.width = width + '%';
+            }, 200);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Observe skills section
+    const skillsSection = document.querySelector('#skills');
+    if (skillsSection) {
+      skillsObserver.observe(skillsSection);
+    }
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
       const dots = document.querySelectorAll('.floating-dot');
