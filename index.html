@@ -1,7 +1,5 @@
- PORTFOLIO: <!DOCTYPE html>
-<html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,545 +11,826 @@
       margin: 0;
       padding: 0;
     }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       background-color: #000000;
       color: #ffffff;
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Inter', 'Quicksand', sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
     }
-    header {
-      padding: 4rem 2rem;
-      text-align: center;
+
+    /* Custom Cursor */
+    #cat-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 1.8rem;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease-out;
+      mix-blend-mode: difference;
     }
-    header h1 {
-      font-size: 4rem;
+
+    /* Smooth Transitions */
+    * {
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Typography Hierarchy */
+    .display-text {
       font-family: 'Playfair Display', serif;
-      margin-bottom: 1rem;
-      color: #ff85a2;
-      position: relative;
-      z-index: 1;
-      text-shadow: 
-        0 0 8px #ff85a2,
-        0 0 16px #ffb6c1,
-        0 0 24px #ffc0cb;
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
     }
-    header p {
-      font-size: 1.25rem;
+    
+    .heading-xl {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+    
+    .heading-lg {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 600;
+    }
+    
+    .body-lg {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(ellipse at center, #1a0a15 0%, #000000 100%);
+      overflow: hidden;
+    }
+
+    .hero-title {
+      background: linear-gradient(135deg, #ff85a2, #ffc7da, #ff6b94);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 6s ease-in-out infinite;
+      text-align: center;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 30px rgba(255, 133, 162, 0.4));
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-subtitle {
+      max-width: 800px;
+      text-align: center;
+      color: rgba(245, 245, 245, 0.9);
+      margin-bottom: 3rem;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 133, 162, 0.1);
+      padding: 1rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #ff85a2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff85a2;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff85a2, #ffc7da);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Sections */
+    .section {
+      padding: 8rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      color: #ff85a2;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
       max-width: 600px;
       margin: 0 auto;
-      color: #f5f5f5;
     }
-    nav {
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      aspect-ratio: 3/4;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover {
+      transform: scale(1.05);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(110%);
+    }
+
+    .about-image:nth-child(1) {
+      transform: rotate(-2deg);
+    }
+
+    .about-image:nth-child(2) {
+      transform: rotate(2deg) translateY(2rem);
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(245, 245, 245, 0.9);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(40, 40, 40, 0.4));
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 133, 162, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 133, 162, 0.3);
+      box-shadow: 0 20px 60px rgba(255, 133, 162, 0.2);
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(45deg, #ff85a2, #ffc7da);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-title {
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-card:hover .project-title {
+      color: #ff85a2;
+    }
+
+    .project-description {
+      color: rgba(214, 214, 214, 0.9);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(255, 133, 162, 0.1);
+      color: #ffc7da;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 133, 162, 0.2);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ff85a2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      gap: 1rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8) contrast(1.1);
+      transition: filter 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      filter: brightness(1) contrast(1.2);
+    }
+
+    /* Floating Elements */
+    .floating-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .floating-dot {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 199, 218, 0.3) 0%, transparent 70%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.3;
+      }
+      33% {
+        transform: translateY(-200px) translateX(100px) scale(1.5);
+        opacity: 0.6;
+      }
+      66% {
+        transform: translateY(-100px) translateX(-50px) scale(0.8);
+        opacity: 0.4;
+      }
+    }
+
+    /* Status Cards */
+    .status-card {
+      position: fixed;
+      background: rgba(26, 26, 26, 0.9);
+      backdrop-filter: blur(20px);
+      color: #ffc7da;
+      padding: 1.5rem;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 133, 162, 0.2);
+      z-index: 999;
+      max-width: 200px;
+    }
+
+    .status-building {
+      top: 20%;
+      left: 20px;
+    }
+
+    .status-learning {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    /* Contact Section */
+    .contact-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-links {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 2rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ff85a2;
-    }
-    section {
-      padding: 8rem 2rem;
-      text-align: center;
-    }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #ff85a2;
-    }
-    .scrapbook-photo-row {
-      display: flex;        /* Make the container a flexbox */
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .scrapbook-photo {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      /*flex: 0 0 auto;        Prevent flex items from growing or shrinking */
-      transform: rotate(-2deg);
-    }
-    
-    .scrapbook-photo img {
-      width: 150px;
-      height: auto;
-      border: 4px solid #fff;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .tape {
-      position: absolute;
-      width: 50px;
-      height: 20px;
-      background: #ff85a2;
-      opacity: 0.7;
-      transform: rotate(-5deg);
-    }
-    
-    .tape.top-left {
-      top: -10px;
-      left: -10px;
-    }
-    .tape.top-right {
-      top: -10px;
-      right: -10px;
-      transform: rotate(5deg);
-    }
-    .caption {
-      font-family: 'Shadows Into Light', cursive;
-      font-size: 1.5rem;
-      color: #ffc7da;
-      margin-top: 0.7rem;
-    }
-    
-    .project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-    .project {
-      background: #1a1a1a;
-      border-radius: 10px;
-      padding: 1rem;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 10px rgba(255, 133, 162, 0.2);
-    }
-    .project:hover {
-      transform: translateY(-5px);
-    }
-    .project img {
-      width: 100%;
-      border-radius: 12px;
-      border: 3px dashed #ff85a2;
-      margin-bottom: 1rem;
-    }
-    .project h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      color: #ffffff;
+      margin: 3rem 0;
     }
 
-   /* GitHub icon style next to project titles */
-.project h3 a::after {
-  content: " 🔗"; /* simple link icon */
-  font-size: 1.1rem;
-  margin-left: 6px;
-}
-    .project p {
-      font-size: 1rem;
-      color: #d6d6d6;
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, rgba(255, 133, 162, 0.1), rgba(255, 199, 218, 0.05));
+      border: 1px solid rgba(255, 133, 162, 0.2);
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
-    footer {
-      text-align: center;
+
+    .contact-link:hover {
+      background: linear-gradient(135deg, rgba(255, 133, 162, 0.2), rgba(255, 199, 218, 0.1));
+      transform: translateY(-2px);
+    }
+
+    /* Quote Section */
+    .quote-section {
       padding: 4rem 2rem;
-      color: #aaaaaa;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(26, 26, 26, 0.4));
+      margin: 4rem auto;
+      max-width: 800px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 133, 162, 0.1);
+      backdrop-filter: blur(10px);
     }
-    a.button, button.button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: #ff85a2;
-      color: #fff;
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #ff85a2;
+      line-height: 1.6;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .quote-text.visible {
+      opacity: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-card {
+        position: relative;
+        margin: 1rem auto;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Smooth Scroll Indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #ff85a2, #ffc7da);
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 9999;
+      transition: transform 0.1s ease;
+    }
+
+    /* CTA Buttons */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #ff85a2, #ff6b94);
+      color: #ffffff;
       text-decoration: none;
       border: none;
-      border-radius: 4px;
-      font-weight: bold;
+      border-radius: 50px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    a.button:hover, button.button:hover {
-      background: #e86a8c;
-      transform: scale(1.05);
-    }
-    #funFactDisplay {
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-      color: #ffc7da;
-      transition: opacity 0.5s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(255, 133, 162, 0.3);
     }
 
-    .floating-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 133, 162, 0.4);
+    }
 
-.floating-dot {
-  position: absolute;
-  background: radial-gradient(circle, #ffc7da 20%, transparent 70%);
-  width: 25px;
-  height: 25px;
-  opacity: 0.2;
-  border-radius: 50%;
-  animation: float 12s infinite ease-in-out;
-}
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid #ff85a2;
+      color: #ff85a2;
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translateY(-100px) scale(1.2);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.2;
-  }
-}
-    #moodboard {
-  padding: 6rem 2rem;
-  text-align: center;
-  background: #111;
-  border-radius: 12px;
-  margin: 4rem auto;
-  max-width: 900px;
-  box-shadow: 0 0 20px #ff85a2;
-}
-
-#moodboard h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  color: #ff85a2;
-  margin-bottom: 1rem;
-}
-
-#moodboard p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #e0c1d9;
-}
-
-.moodboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  justify-items: center;
-}
-
-.moodboard-grid img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #ff85a2;
-  box-shadow: 0 4px 15px rgba(255, 133, 162, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.moodboard-grid img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 30px rgba(255, 133, 162, 0.8);
-}
-
-  #cat-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-size: 1.8rem;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease-out;
-}
-
+    .cta-secondary:hover {
+      background: #ff85a2;
+      color: #ffffff;
+    }
   </style>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator"></div>
+  
+  <!-- Custom Cursor -->
   <div id="cat-cursor">🐱</div>
   
+  <!-- Floating Background -->
   <div class="floating-bg">
-  <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-  <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
-  <div class="floating-dot" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
-  <div class="floating-dot" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
-  <div class="floating-dot" style="top: 60%; left: 60%; animation-delay: 8s;"></div>
-</div>
-  
-  <div style="
-    position: fixed;
-    top: 20%;
-    left: 10px;
-    background: #1a1a1a;
-    color: #ffc7da;
-    padding: 1rem;
-    border-radius: 10px;
-    width: 160px;
-    font-size: 0.9rem;
-    z-index: 999;
-    box-shadow: 0 0 10px rgba(255,133,162,0.4);">
+    <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-dot" style="top: 50%; left: 20%; animation-delay: 2s;"></div>
+    <div class="floating-dot" style="top: 70%; left: 40%; animation-delay: 4s;"></div>
+    <div class="floating-dot" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
+    <div class="floating-dot" style="top: 60%; left: 60%; animation-delay: 8s;"></div>
+    <div class="floating-dot" style="top: 15%; left: 70%; animation-delay: 10s;"></div>
+    <div class="floating-dot" style="top: 85%; left: 15%; animation-delay: 12s;"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <div class="nav-logo">NF</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Status Cards -->
+  <div class="status-card status-building">
     <strong>Now Building:</strong><br>
     Personal Trading Bot
   </div>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  
+  <div class="status-card status-learning">
+    📚 Learning: Reinforcement Learning + C++ Boost
+  </div>
 
-  <header>
-    <h1>Oluwanifemi Fabunmi</h1>
-    <p>Double major in Computer Science & Finance at Clarkson University. I am very passionate about blending analytical power with creative tech, AI, fintech, designing smart and intuitive systems with personality that also actually feel good to use.</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contacts</a>
-      <a href="#playlist">Playlist</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#moodboard">Inspirations</a>
-    </nav>
-  </header>
-
-  <section id="about">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
-    <h2>About Me</h2>
-    <div class="scrapbook-photo-row">
-    <div class="scrapbook-photo">
-      <img src="/images/nifemi.jpg" alt="Nifemi">
-      <div class="tape top-left"></div>
-      <div class="tape top-right"></div>
-      <div class="caption">Probably dreaming in Python and pink 💭💻🌸</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="display-text hero-title">Oluwanifemi Fabunmi</h1>
+    <p class="body-lg hero-subtitle">
+      Double major in Computer Science & Finance at Clarkson University. I blend analytical power with creative tech, crafting AI-driven fintech solutions that feel as good as they perform.
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+      <a href="#projects" class="cta-button">View My Work</a>
+      <a href="/resume.pdf" class="cta-button cta-secondary" download>Download Resume</a>
     </div>
-    <div class="scrapbook-photo">
-    <img src="/images/nifemi2.jpg" alt="Nifemi smiling in black top">
-    <div class="tape top-left"></div>
-    <div class="tape top-right"></div>
-    <div class="caption">Manifesting clean commits, good grades, and clear skin 💅🏾🌸</div>
-  </div>
-  <div class="scrapbook-photo">
-    <img src="/images/nifemi3.jpg" alt="Nifemi with bubble tea">
-    <div class="tape top-left"></div>
-    <div class="tape top-right"></div>
-    <div class="caption">Me after finally fixing a bug that ruined my night 💻😅</div>
-  </div>
-
-            <br><br>
-     <p style="max-width: 700px; margin: 2rem auto; color: #f5f5f5; font-size: 1.1rem; line-height: 1.6;">
-    Hey there! I’m Nifemi — a curious double major in Computer Science and Finance at Clarkson University, blending the analytical rigor of numbers with creative tech to build smart, intuitive, and yes, even beautiful systems.  
-    <br><br>
-    When I’m not diving deep into algorithmic trading models or fine-tuning fraud detection, you’ll find me immersed in K-dramas, sketching UI ideas, or daydreaming about adopting a fluffy ragdoll cat named Satoshi.  
-    <br><br>
-    I believe that data isn’t just numbers — it’s stories waiting to be told, and I’m here to translate those stories into tools that feel human and empowering. With a dash of pink energy and a whole lot of passion, I’m crafting a future where tech meets heart
-    <p>I’m a curious multidisciplinary builder and creative thinker based in New York. With a double major in Computer Science & Finance at Clarkson University (Potsdam, Upstate New York). 
-      <br><br>
-      I’ve developed algorithmic trading tools, financial dashboards, and fraud detection models. I’m also co-founder of Clarkson’s African Student Union and a member of NSBE (National Society of Black Engineers) and SWE (Society of Women Engineers). I bring energy, community, and curiosity into every project.<br><br>
-    Right now, I’m exploring the intersection of quantitative finance (trading and research), machine learning, Artificial Intelligence, Data minning, visual storytelling and dreaming up tools that make data feel intuitive and empowering.</p>
-    <br><br>
-       </p>
-         <br><br>
-
-    <a class="button" href="resume.pdf" download>Download Resume</a>
-    <br><br>
-    <a class="button" href="https://github.com/nifemifabunmi" target="_blank">Visit My GitHub</a>
   </section>
 
-  <section id="projects">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/algorithmic-trading-app" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>Algorithmic Trading App</h3>
-      </a>
-      <p>Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs. I love how this project pushes me to combine finance and AI — it’s like a puzzle I’m obsessed with solving.</p>
-      <p><strong>Tech:</strong> Python, Streamlit, Pandas, REST APIs, Reinforcement Learning (in progress)</p>
-    </div>
-
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/stock-market-dashboard" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>Stock Market Dashboard and Investment Insights</h3>
-      </a>
-      <p>Interactive dashboards using Tableau and Excel analyzing over 10 years of financial data. I aimed to deliver clear insights for investors, turning complex data into visual stories that empower decisions.</p>
-      <p><strong>Tech:</strong> Tableau, Excel, Data Visualization, Financial Analysis</p>
-    </div>
-
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/fraud-detection-model" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>Fraud Detection Model</h3>
-      </a>
-      <p>Trained a machine learning model in Python using scikit-learn to flag anomalies in transactions. This project taught me the importance of precision and how to balance false positives while protecting users.</p>
-      <p><strong>Tech:</strong> Python, scikit-learn, Machine Learning, Data Cleaning</p>
-    </div>
-
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/GRIND-Engine" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>GRIND Engine - File-Based Web Browser</h3>
-      </a>
-      <p>A C++ prototype web browser with modular navigation and text formatting commands. It cut response lag by 30%, pushing me to deepen my understanding of systems programming and UI logic.</p>
-      <p><strong>Tech:</strong> C++, Systems Programming, File I/O, Modular Design</p>
-    </div>
-
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/inventory-tracking-system" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>Inventory Tracking System</h3>
-      </a>
-      <p>Designed using C++ structs, vectors, and file I/O to optimize inventory updates with 78.6% accuracy and 30% faster processing. This project helped sharpen my data structure skills and real-world app thinking.</p>
-      <p><strong>Tech:</strong> C++, Data Structures, File I/O, Algorithm Optimization</p>
-    </div>
-
-    <div class="project">
-      <a href="https://github.com/nifemifabunmi/bomb-defusal-lab" target="_blank" style="text-decoration:none; color:#ff85a2;">
-        <h3>Bomb Defusal Lab</h3>
-      </a>
-      <p>Disassembled and debugged binary phases (1–6) using C. I achieved 100% accuracy and cut disassembly time by 40% with optimized logic — a thrilling challenge that honed my debugging skills.</p>
-      <p><strong>Tech:</strong> C, Debugging, Reverse Engineering, Optimization</p>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-header">
+      <h2 class="heading-xl section-title">About Me</h2>
+      <p class="body-lg section-subtitle">Building the future where Technology meets heart</p>
     </div>
     
+    <div class="about-content">
+      <div class="about-images">
+        <div class="about-image">
+          <img src="/images/nifemi.jpg" alt="Nifemi coding">
+        </div>
+        <div class="about-image">
+          <img src="/images/nifemi2.jpg" alt="Nifemi smiling">
+        </div>
+      </div>
+      
+      <div class="about-text">
+        <p>Hey there! I'm Nifemi, a curious builder blending the analytical rigor of finance with the creative potential of technology to craft intelligent, intuitive systems.</p>
+        
+        <p>When I'm not diving deep into algorithmic trading models or fine-tuning fraud detection systems, you'll find me immersed in K-dramas, sketching UI concepts, or daydreaming about adopting a fluffy ragdoll cat named Satoshi.</p>
+        
+        <p>I believe data isn't just numbers — it's stories waiting to be told. I'm here to translate those stories into tools that feel human and empowering, one line of code at a time.</p>
+        
+        <div style="margin-top: 2rem;">
+          <a href="https://github.com/nifemifabunmi" class="cta-button cta-secondary" target="_blank">
+            Visit GitHub →
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-    <section id="moodboard">
-  <h2>Moodboard & Inspirations ✨</h2>
-  <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem auto;">
-    A collage of coding vibes, K-Drama aesthetics, and creative sparks that keep me going.
-  </p>
-  <div class="moodboard-grid">
-    <img src="/images/coding.jpeg" alt="Code aesthetic 1" />
-    <img src="/images/inspo2.jpeg" alt="Coding setup" />
-    <img src="/images/kdrama2.jpeg" alt="K-Drama inspiration 2" />
-    <img src="/images/inspo.jpeg" alt="Pinterest inspiration" />
-    <img src="/images/flower.jpeg" alt="Pink flowers" />
-  </div>
-</section>
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="section-header">
+      <h2 class="heading-xl section-title">Featured Projects</h2>
+      <p class="body-lg section-subtitle">A collection of my favorite builds and experiments</p>
+    </div>
 
-   <section id="gallery">
-    <h2>Creative & Certification Gallery 🎨📜</h2>
-    <p style="margin-bottom: 2rem; color: #ccc; max-width: 700px; margin-left: auto; margin-right: auto;">
-      A cozy corner for showcasing everything beyond code — from digital art and design to certifications and creative side quests. Click any image for a closer look!
-    <br><br>
-    </p>
-    <div class="project-grid">
-      <div class="project">
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Algorithmic Trading App</h3>
+          <p class="project-description">Built a Python and Streamlit-based trading platform enabling real-time simulations, backtesting, and dynamic indicators powered by live financial data APIs.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Streamlit</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">ML</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/algorithmic-trading-app" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Fraud Detection Model</h3>
+          <p class="project-description">Trained a machine learning model to flag transaction anomalies with high precision, balancing false positives while protecting users.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">Data Analysis</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/fraud-detection-model" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">GRIND Engine</h3>
+          <p class="project-description">A C++ prototype web browser with modular navigation and text formatting. Reduced response lag by 30% through optimized architecture.</p>
+          <div class="project-tech">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Systems Programming</span>
+            <span class="tech-tag">File I/O</span>
+            <span class="tech-tag">Optimization</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/GRIND-Engine" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Stock Market Dashboard</h3>
+          <p class="project-description">Interactive dashboards analyzing 10+ years of financial data, delivering clear insights through compelling visual storytelling.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Tableau</span>
+            <span class="tech-tag">Excel</span>
+            <span class="tech-tag">Data Visualization</span>
+            <span class="tech-tag">Financial Analysis</span>
+          </div>
+          <a href="https://github.com/nifemifabunmi/stock-market-dashboard" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section" id="gallery">
+    <div class="section-header">
+      <h2 class="heading-xl section-title">Gallery & Certifications</h2>
+      <p class="body-lg section-subtitle">Beyond code — creative projects and professional achievements</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
         <img src="/images/zscaler-cert.png" alt="Zscaler Cybersecurity Certificate">
-        <p class="caption">Zscaler Certified – zero trust architecture, secured traffic & remote access 🌸</p>
       </div>
-      <br><br>
-      
-      <div class="project">
+      <div class="gallery-item">
         <img src="/images/microsoft-cert.png" alt="Microsoft C# Certification">
-        <p class="caption">Microsoft Foundational C# Certificate – earned July 2025 💻✨</p>
       </div>
-      <br><br>
-      
-      <div class="project">
-        <img src="/images/sketchbook-page.jpg" alt="Sketchbook Doodles">
-        <p class="caption">Late night thoughts + rough UI mockups 🧠📓</p>
+      <div class="gallery-item">
+        <img src="/images/coding.jpeg" alt="Coding aesthetic">
       </div>
-      <br><br>
-      
-      <div class="project">
-        <img src="/images/cert-upcoming.jpeg" alt="Placeholder for upcoming cert">
-        <p class="caption">More certs coming soon... because learning never stops 🤍</p>
+      <div class="gallery-item">
+        <img src="/images/flower.jpeg" alt="Creative inspiration">
       </div>
     </div>
   </section>
 
-    <section id="learning">
-  <h2>What I’m Learning 📚</h2>
-  <p style="max-width: 700px; margin: 0 auto; color: #ccc;">
-    Right now, I’m deep-diving into reinforcement learning for algorithmic trading.
-    <br><br> I am also working on an externship with Beats by Dre working on qualitative and quantitave analysis while personally brushing up on SQL joins (they're still tricky sometimes 😅).
-    <br><br> I am building out my C++ project to strengthen low-level memory management skills.
-    <br><br>
-     Between debugging code and analyzing market trends, I’m also carving out time for self-care, K-dramas, and babysitting.
-  I'm also watching lots of animes, youtube comedies, twitch live and rewatching a lot of shows and 1960s up to early 2000s movies including shows like Criminal Minds, Gilmore girls and The vampire diaries, because I deserve a break. 🥲✨
-  </p>
-</section>
-
-  <section id="contact">
-    <hr style="border: none; height: 2px; background: #ff85a2; width: 60%; margin: 4rem auto; border-radius: 5px;">
-    <h2>Get In Touch</h2>
-    <p>Let’s build something meaningful. Whether you’re looking for a creative collaborator, hiring for an internship, or just want to talk shop or K-dramas 😌. 
-      <br><br>Email me at <a href="mailto:oluwanifemifabunmi6@gmail.com">oluwanifemifabunmi6@gmail.com</a> or connect via <a href="https://www.linkedin.com/in/nifemif-b76a34243/">LinkedIn</a>.
-      </p>
-    <button id="funFactBtn" class="button">Click Me 🧠💕</button>
-    <p id="funFactDisplay"></p>
+  <!-- Quote Section -->
+  <section class="quote-section">
+    <p class="quote-text" id="quote-text"> Loading Quotes...</p>
   </section>
 
-  <section id="quote-rotator" style="padding: 2rem; text-align: center; background: #111; color: #ff85a2; font-style: italic; font-size: 1.25rem; max-width: 700px; margin: 2rem auto; border-radius: 10px; box-shadow: 0 0 15px #ff85a2;">
-  <p id="quote-text">Loading inspirational quote...</p>
-</section>
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <h2 class="heading-xl section-title">Let's Connect</h2>
+      <p class="body-lg section-subtitle">Ready to build something meaningful together?</p>
+    </div>
 
-<script>
-  const quotes = [
-    "“Code is like humor. When you have to explain it, it’s bad.” – Cory House",
-    "“Simplicity is the soul of efficiency.” – Austin Freeman",
-    "“First, solve the problem. Then, write the code.” – John Johnson",
-    "“Talk is cheap. Show me the code.” – Linus Torvalds",
-    "“The heart is a strange beast. It can carry you through hell.” – Dr. Spencer Reid",
-    "“Experience is the name everyone gives to their mistakes.” – Oscar Wilde",
-    "“In investing, what is comfortable is rarely profitable.” – Robert Arnott",
-    "“The mind is a powerful thing. It can convince you of things that aren’t true.” – Dr. Spencer Reid",
-    "“You can’t change the past, but you can learn from it.” – Emily Prentiss",
-    "“Life's short. Talk fast.” – Lorelai Gilmore, Gilmore Girls",
-    "“Risk comes from not knowing what you’re doing.” – Warren Buffett",
-    "“The greatest weapon against stress is our ability to choose one thought over another.” – Jason Gideon",
-    "“The mind is like a parachute; it only works when open.” – Jason Gideon",
-    "“Stay curious, stay coding.” – Nifemi Fabunmi 💖"
-  ];
-  let index = 0;
-  const quoteText = document.getElementById('quote-text');
+    <div class="contact-content">
+      <p class="body-lg" style="margin-bottom: 2rem;">
+        Whether you're looking for a creative collaborator, hiring for an internship, or just want to chat about K-dramas and code.
+      </p>
 
-  function showNextQuote() {
-    quoteText.style.opacity = 0;
-    setTimeout(() => {
-      quoteText.textContent = quotes[index];
-      quoteText.style.opacity = 1;
-      index = (index + 1) % quotes.length;
-    }, 600);
-  }
+      <div class="contact-links">
+        <a href="mailto:oluwanifemifabunmi6@gmail.com" class="contact-link">
+          📧 Email Me
+        </a>
+        <a href="https://www.linkedin.com/in/nifemif-b76a34243/" class="contact-link" target="_blank">
+          🔗 LinkedIn
+        </a>
+      </div>
 
-  setInterval(showNextQuote, 7000);
-  window.onload = showNextQuote;
-</script>
+      <button id="funFactBtn" class="cta-button" style="margin-top: 2rem;">
+        Random Fact About Me ✨
+      </button>
+      <p id="funFactDisplay" style="margin-top: 1rem; min-height: 2rem; color: #ffc7da;"></p>
+    </div>
+  </section>
 
-        <br><br>
-    <section id="playlist" style="padding: 4rem 2rem; text-align: center; background-color: #111;">
-  <h2 style="color: #ff85a2; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">
-    My Coding Playlist 🎶
-  </h2>
-  <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 2rem;">
-    Music that powers my late night bug-fixing, brainstorming, and dreaming 💭💻🌸
-  </p>
-  <iframe style="border-radius:12px" 
-    src="https://open.spotify.com/embed/playlist/7Issm5A1kcMKVlfRbeNc13?utm_source=generator" 
-    width="80%" height="352" frameBorder="0" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    loading="lazy">
-  </iframe>
-</section>
-
-  <footer>
-    © 2025 Oluwanifemi Fabunmi · Built with love, JavaScript, and lots of pink energy 💖
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 4rem 2rem; color: #aaa; border-top: 1px solid rgba(255, 133, 162, 0.1); margin-top: 4rem;">
+    © 2025 Oluwanifemi Fabunmi · Built with love, code, and lots of pink energy 💖
   </footer>
 
   <script>
+    // Scroll Indicator
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrollPercent / 100})`;
+    });
+
+    // Custom Cursor
+    const catCursor = document.getElementById('cat-cursor');
+    document.addEventListener('mousemove', (e) => {
+      catCursor.style.transform = `translate(${e.clientX + 10}px, ${e.clientY + 10}px)`;
+    });
+
+    // Quote Rotator
+    const quotes = [
+      ""Code is like humor. When you have to explain it, it's bad." – Cory House",
+      ""Simplicity is the soul of efficiency." – Austin Freeman",
+      ""First, solve the problem. Then, write the code." – John Johnson",
+      ""The heart is a strange beast. It can carry you through hell." – Dr. Spencer Reid",
+      ""Life's short. Talk fast." – Lorelai Gilmore",
+      ""Risk comes from not knowing what you're doing." – Warren Buffett",
+      ""Stay curious, stay coding." – Nifemi Fabunmi 💖"
+    ];
+
+    let quoteIndex = 0;
+    const quoteText = document.getElementById('quote-text');
+
+    function showNextQuote() {
+      quoteText.classList.remove('visible');
+      setTimeout(() => {
+        quoteText.textContent = quotes[quoteIndex];
+        quoteText.classList.add('visible');
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+      }, 300);
+    }
+
+    setInterval(showNextQuote, 7000);
+    setTimeout(showNextQuote, 500);
+
+    // Fun Facts
     const facts = [
       "I once debugged a bug at 3AM with only ramen and BTS music.",
       "My favorite data structure is the hash map (because fast lookups, duh).",
-      "I’m developing a machine learning model to support smart trading decisions.",
+      "I'm developing a machine learning model to predict my next K-drama obsession.",
       "My dream is to adopt a ragdoll cat and name it Satoshi 🐱",
       "K-dramas while coding = perfect productivity boost."
     ];
 
-    const btn = document.getElementById("funFactBtn");
-    const display = document.getElementById("funFactDisplay");
-
-    btn.addEventListener("click", () => {
+    document.getElementById("funFactBtn").addEventListener("click", () => {
+      const display = document.getElementById("funFactDisplay");
       const randomIndex = Math.floor(Math.random() * facts.length);
       display.style.opacity = 0;
       setTimeout(() => {
@@ -559,46 +838,64 @@
         display.style.opacity = 1;
       }, 200);
     });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.nav-bar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+      } else {
+        navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections and cards
+    document.querySelectorAll('.section, .project-card, .gallery-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(el);
+    });
+
+    // Parallax effect for floating dots
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const dots = document.querySelectorAll('.floating-dot');
+      
+      dots.forEach((dot, index) => {
+        const speed = 0.5 + (index * 0.1);
+        dot.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
   </script>
-    
-    <script>
-  const catCursor = document.getElementById('cat-cursor');
-
-  document.addEventListener('mousemove', (e) => {
-    catCursor.style.transform = `translate(${e.clientX + 10}px, ${e.clientY + 10}px)`;
-  });
-      @keyframes glowMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-header h1 {
-  background: linear-gradient(90deg, #ff85a2, #ffc7da, #ff85a2);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowMove 4s ease-in-out infinite alternate;
-  text-shadow: 0 0 12px rgba(255, 133, 162, 0.5);
-}
-</script>
-
-    <div style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a1a1a;
-  color: #ffc7da;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  box-shadow: 0 0 10px rgba(255,133,162,0.3);">
-  📚 Learning: Reinforcement Learning + C++ Boost
-</div>
-
 </body>
 </html>
-
