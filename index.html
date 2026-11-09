@@ -131,14 +131,14 @@ body.lock{overflow:hidden}
 
 /* also built */
 .also{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule);border-radius:20px;background:var(--white);overflow:hidden;margin-top:24px}
-.also a{display:block;text-decoration:none;padding:28px 30px;border-bottom:1px solid var(--rule);transition:background .15s}
-.also a:nth-child(odd){border-right:1px solid var(--rule)}
-.also a:nth-last-child(-n+2){border-bottom:0}
-.also a:hover{background:var(--blush)}
+.also>*{display:block;text-decoration:none;padding:28px 30px;border-bottom:1px solid var(--rule);transition:background .15s}
+.also>*:nth-child(odd){border-right:1px solid var(--rule)}
+.also>*:nth-last-child(-n+2){border-bottom:0}
+.also>*:hover{background:var(--blush)}
 .also h3{font-size:21px;margin-bottom:6px}
 .also p{font-size:16px;color:var(--slate)}
 .also .t{font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--rose-deep);margin-top:10px;display:block}
-@media(max-width:700px){.also{grid-template-columns:1fr}.also a:nth-child(odd){border-right:0}.also a:nth-last-child(2){border-bottom:1px solid var(--rule)}}
+@media(max-width:700px){.also{grid-template-columns:1fr}.also>*:nth-child(odd){border-right:0}.also>*:nth-last-child(2){border-bottom:1px solid var(--rule)}}
 
 /* experience */
 .xp{list-style:none;display:grid;gap:0}
@@ -147,6 +147,7 @@ body.lock{overflow:hidden}
 .xp .when{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--slate)}
 .xp h3{font-size:22px;margin-bottom:4px}
 .xp p{font-size:17px;color:var(--slate)}
+.xp .facts{margin:12px 0 0}.xp .facts li{font-size:16.5px;color:var(--slate)}
 .badge{display:inline-block;font-family:var(--display);font-size:12.5px;font-weight:600;background:var(--blush);color:var(--rose-deep);padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
 .note{margin-top:26px;font-size:16px;color:var(--slate);max-width:70ch}
 @media(max-width:640px){.xp li{grid-template-columns:1fr}}
@@ -166,10 +167,9 @@ body.lock{overflow:hidden}
 
 
 /* programs + beyond */
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule);border-radius:20px;background:var(--white);overflow:hidden;margin-top:20px}
-.pgrid div{padding:20px 26px;border-bottom:1px solid var(--rule)}
-.pgrid div:nth-child(odd){border-right:1px solid var(--rule)}
-.pgrid div:nth-last-child(-n+2){border-bottom:0}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;border:1px solid var(--rule);border-radius:20px;background:var(--rule);overflow:hidden;margin-top:20px}
+.pgrid div{padding:20px 26px;background:var(--white)}
+.pgrid div:last-child:nth-child(odd){grid-column:1/-1}
 .pgrid h4{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.25}
 .pgrid p{font-size:15.5px;color:var(--slate);margin-top:2px}
 .sub-h{font-size:22px;margin-top:48px}
@@ -179,7 +179,7 @@ body.lock{overflow:hidden}
 .beyond li{padding-left:22px;position:relative;font-size:17px}
 .beyond li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--rose)}
 @media(max-width:800px){.beyond{grid-template-columns:1fr}}
-@media(max-width:640px){.pgrid{grid-template-columns:1fr}.pgrid div:nth-child(odd){border-right:0}.pgrid div:nth-last-child(2){border-bottom:1px solid var(--rule)}}
+@media(max-width:640px){.pgrid{grid-template-columns:1fr}}
 
 /* contact */
 .contact{background:var(--ink);color:var(--paper);padding:clamp(64px,9vw,110px) 0 40px}
@@ -398,6 +398,22 @@ body.lock{overflow:hidden}
         <span class="t">Python, market microstructure</span>
       </a>
     </div>
+
+    <h3 style="margin-top:56px">Earlier projects</h3>
+    <p style="color:var(--slate);font-size:16px;margin-top:6px">High school, 2020 to 2022. C and C++ projects from when I was learning systems programming.</p>
+    <!-- TODO: add one line per project on what each percentage measured (e.g. "78.6% of inventory updates matched expected values in testing"). -->
+    <div class="also">
+      <a href="https://github.com/nifemifabunmi/inventory-tracking-system">
+        <h3>Inventory tracking system</h3>
+        <p>Real-time inventory updates with 78.6% accuracy, with data structures optimized to cut processing time by 30%.</p>
+        <span class="t">C++, structs, vectors, file I/O</span>
+      </a>
+      <div>
+        <h3>Reverse engineering lab</h3>
+        <p>A multi-phase disassembly and debugging project with 100% accuracy and 40% less disassembly time.</p>
+        <span class="t">C, reverse engineering</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -408,29 +424,77 @@ body.lock{overflow:hidden}
     </div>
     <ul class="xp">
       <li>
-        <div class="when">Jul to Sep 2025</div>
-        <div><h3>Data Analytics &amp; Insights Intern (Lead), Cobble</h3><p>Led a data analytics and insights internship. <!-- TODO: add 1-2 lines on what you analyzed and what changed because of it. --></p></div>
-      </li>
-      <li>
         <div class="when">Now</div>
-        <div><h3>SQL &amp; Database Architecture, Breaking Games <span class="badge">In progress</span></h3><p>Turning six messy e-commerce CSVs into a consolidated analytics database and a Q4 dashboard, with documented transformation rules.</p></div>
+        <div><h3>SQL &amp; Database Architecture, Breaking Games <span class="badge">In progress</span></h3><p>Virtual externship through Extern. Turning six messy e-commerce CSVs into a consolidated analytics database and a Q4 dashboard, with documented transformation rules.</p></div>
       </li>
       <li>
-        <div class="when">2023 to 2027</div>
-        <div><h3>Clarkson University</h3><p>B.E. Computer Science and B.S. Financial Information and Analysis (double major), expected May 2027. <!-- TODO: confirm degree wording (B.E. vs B.S. in Computer Science). --></p><p>Relevant coursework: machine learning, data analytics, financial analysis, statistics, mathematics, economics, project management, marketing. <!-- TODO: trim to courses you can discuss in an interview. --></p></div>
+        <div class="when">Jul to Sep 2025</div>
+        <div><h3>Data Analytics &amp; Insights Intern (Lead), Cobble</h3>
+          <p>Internship at Cobble, a collaborative decision-making app.</p>
+          <ul class="facts">
+            <li>Built three Metabase dashboards on decision effectiveness, user engagement, and poll performance, after defining the KPIs with stakeholder input.</li>
+            <li>Designed a composite Decision Effectiveness Score that weighs participation, response speed, and how clearly a decision resolves.</li>
+            <li>Analyzed 639 rows of poll performance data to find top-performing polls to replicate, and mapped usage patterns such as daily peaks and voting spikes.</li>
+            <li>Wrote up the method, findings, and next steps in a project report, including open challenges like how to weight the score and track clear outcomes.</li>
+          </ul>
+          <!-- OPTIONAL numbers from your report, if Cobble is fine with you sharing them: top poll 2,100 votes; peak 543 daily active users; 54 votes at 6 PM on one day. Left out because they are the company's internal figures. -->
+          </div>
+      </li>
+      <li>
+        <div class="when">Jul to Aug 2024</div>
+        <div><h3>Digital Strategy &amp; Data Science Intern, New York Center for Interpersonal Development</h3>
+          <p>Remote internship.</p>
+          <ul class="facts">
+            <li>Ran surveys and stakeholder interviews, then synthesized the results in Excel and Tableau to find engagement bottlenecks, which led to a 25% increase in digital content performance.</li>
+            <li>Automated Tableau reporting workflows, cutting manual analysis time by 30%.</li>
+            <li>Presented findings and strategy recommendations to 10 to 50+ stakeholders.</li>
+            <li>Created social media posts and presentations in Canva and WordPress for a refreshed campaign.</li>
+          </ul></div>
+      </li>
+      <li>
+        <div class="when">Jul to Aug 2023</div>
+        <div><h3>Cybersecurity &amp; Risk Intern, Bank of America Work Prep (Girls Who Code)</h3>
+          <p>Remote program.</p>
+          <ul class="facts">
+            <li>Collaborated on a cybersecurity simulation project, analyzing risks and developing incident response strategies.</li>
+            <li>Completed Forage risk management and security assignments and earned a Girls Who Code certification in cybersecurity principles.</li>
+          </ul></div>
+      </li>
+      <li>
+        <div class="when">Jul to Aug 2022</div>
+        <div><h3>Software Engineering Intern, Google CS Summer Institute</h3>
+          <p>Remote program.</p>
+          <ul class="facts">
+            <li>Built an animal adoption website with a team of 5 in JavaScript, adding search filters and interactive maps.</li>
+            <li>Presented the final project to Google engineers and received positive feedback on design and function.</li>
+            <li>Completed certifications in HTML, JavaScript, and CSS.</li>
+          </ul></div>
+      </li>
+      <li>
+        <div class="when">Apr to May 2021</div>
+        <div><h3>Intern, Turner Construction</h3>
+          <p>Brooklyn, NY.</p>
+          <ul class="facts">
+            <li>Researched and compiled data into timely reports.</li>
+            <li>Maintained project files and researched construction sites.</li>
+            <li>Explored the architectural process and prepared presentations for clients.</li>
+          </ul></div>
+      </li>
+      <li>
+        <div class="when">Expected May 2027</div>
+        <div><h3>Clarkson University</h3><p>B.E. Computer Science and B.S. Financial Information and Analysis (double major), expected May 2027. <!-- TODO: confirm degree wording (B.E. vs B.S. in Computer Science) and your start year. --></p><p>Relevant coursework: machine learning, data analytics, financial analysis, statistics, mathematics, economics, project management, marketing. <!-- TODO: trim to courses you can discuss in an interview. --></p></div>
+      </li>
+      <li>
+        <div class="when">High school</div>
+        <div><h3>Clara Barton High School, Brooklyn</h3><p>International Baccalaureate Diploma. Honor roll and IB Dean's List. Volunteer teacher assistant, Aug 2019 to Sep 2020, managing classroom supplies and offering one-on-one support outside school hours. <!-- TODO: confirm the year you earned the IB diploma (your notes say 2022, but Clarkson class of 2027 suggests 2023). --></p></div>
       </li>
     </ul>
-    <h3 class="sub-h">More internships and programs</h3>
-    <!-- TODO for each item below: add dates and one line on what you did or built. Remove any you can't confirm. -->
+    <h3 class="sub-h">Other internships and programs</h3>
+    <!-- TODO for each item below: add dates and one line on what you did or built. Remove any you can't confirm. NYC SYEP can go here too if you want it listed. -->
     <div class="pgrid">
       <div><h4>Prologue Films</h4><p>AI Workflow Automation internship</p></div>
       <div><h4>Handshake AI</h4><p>Research Fellowship</p></div>
-      <div><h4>Turner Construction</h4><p>Internship</p></div>
-      <div><h4>Bank of America</h4><p>Paid program</p></div>
       <div><h4>Barclays</h4><p>Banking experience</p></div>
-      <div><h4>Google CSSI</h4><p>Computer Science Summer Institute</p></div>
-      <div><h4>NYC Youth Employment (SYEP)</h4><p>Summer internship</p></div>
-      <div><h4>Girls Who Code</h4><p>Program</p></div>
     </div>
     <p class="note">The Pfizer, Beats by Dre, and Breaking Games projects were completed as virtual externships through Extern, which verified them. They are project work, not employment.</p>
   </div>
@@ -442,11 +506,11 @@ body.lock{overflow:hidden}
       <h2>What I work with</h2>
     </div>
     <div class="skills">
-      <div><h3>Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">JavaScript</span></div></div>
+      <div><h3>Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">HTML and CSS</span><span class="chip">Haskell</span><span class="chip">C#</span><span class="chip">MATLAB</span></div></div>
       <div><h3>AI and machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">OCR</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Gradio</span><span class="chip">Model evaluation</span><span class="chip">NLP</span><span class="chip">Workflow automation</span><span class="chip">API integration</span></div></div>
       <div><h3>Data and analytics</h3><div class="chips"><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Streamlit</span><span class="chip">NumPy</span><span class="chip">Metabase</span></div></div>
       <div><h3>Finance</h3><div class="chips"><span class="chip">Algorithmic trading</span><span class="chip">Backtesting</span><span class="chip">Risk metrics</span><span class="chip">Financial modeling</span><span class="chip">Statistical analysis</span></div></div>
-      <div><h3>Tools and infrastructure</h3><div class="chips"><span class="chip">Git and GitHub</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Data pipelines</span><span class="chip">Databases</span></div></div>
+      <div><h3>Tools and infrastructure</h3><div class="chips"><span class="chip">Git and GitHub</span><span class="chip">Azure</span><span class="chip">ProjectLibre</span><span class="chip">Canva</span><span class="chip">WordPress</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Data pipelines</span><span class="chip">Databases</span></div></div>
     </div>
     <p class="learning"><b>Learning next:</b> reinforcement learning, advanced SQL, and TypeScript with React.</p>
   </div>
@@ -460,9 +524,20 @@ body.lock{overflow:hidden}
     </div>
     <!-- TODO: add your actual ASU role and one concrete result (attendance, budget, members), and your tutoring/baking/braiding details if you want numbers there. -->
     <div class="beyond">
-      <div><h3>Leadership</h3><ul><li><b>African Student Union, Executive Board Member.</b> Helped organize cultural events and student engagement initiatives. <!-- TODO: add ONE number you can stand behind (event attendance is best), e.g. "about 100 attendees at Cultural Day". Label estimates as approximate. --></li><li>Cultural Day and African cultural programming</li><li>Student organization management and event coordination</li></ul></div>
-      <div><h3>Entrepreneurship</h3><ul><li>Hair braiding business</li><li>Baking and selling products</li><li>Private tutoring</li></ul></div>
-      <div><h3>Independent work</h3><ul><li>Personal research projects</li><li>Independent technical projects</li></ul></div>
+      <div><h3>Leadership</h3><ul>
+        <li><b>Co-Founder and Vice President, African Student Union.</b> Helped organize cultural events and student engagement initiatives. <!-- TODO: add ONE number you can stand behind (event attendance is best). Label estimates as approximate. --></li>
+        <li><b>Treasurer, Girls Who Code.</b></li>
+        <li>Member, NSBE, SWE, and ColorStack</li>
+        <li><b>Programmer, FIRST Tech Challenge Robotics.</b> Wrote C++ and Python for sensor-driven automation, autonomous logic, and real-time control.</li>
+      </ul></div>
+      <div><h3>Entrepreneurship</h3><ul><li>Hair braiding business</li><li>Baking and selling products</li><li>Private tutoring, including middle school and kindergarten math through Algebra II</li></ul></div>
+      <div><h3>Learning and development</h3><ul>
+        <li>MIT Hackathon 2025 (AI-focused)</li>
+        <li>Bloomberg Client Service job simulation, via Forage</li>
+        <li>Grow with Google</li>
+        <li>Brooklyn Emerging Leadership Academy, June 2022</li>
+        <li>Personal research and independent technical projects</li>
+      </ul></div>
     </div>
   </div>
 </section>
@@ -473,7 +548,7 @@ body.lock{overflow:hidden}
     <div>
       <h2 style="margin-bottom:24px">About me</h2>
       <p>I like problems where finance and software overlap: a model is only useful if the data behind it is clean and the system around it is dependable. That's why my projects spend as much time on data cleaning, evaluation, and measuring results as on the model.</p>
-      <p>I'm a double major at Clarkson who started early: Google CSSI and Girls Who Code in high school, then banking programs, internships, and externships that moved me from programming into data, AI, and quantitative finance. I also run small businesses and help lead the African Student Union.</p>
+      <p>I'm a double major at Clarkson who started early: a Google summer program in 2022, a Bank of America cybersecurity program in 2023, and a digital strategy and data internship in 2024. Since then, internships and externships have moved me into data, AI, and quantitative finance. I also co-founded and serve as vice president of the African Student Union, and I run a few small businesses.</p>
       <p>Outside of code I sketch UI ideas, watch too many K-dramas, and keep a running list of names for a future ragdoll cat (Satoshi is winning).</p>
     </div>
   </div>
