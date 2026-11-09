@@ -164,6 +164,23 @@ body.lock{overflow:hidden}
 .about p{margin-bottom:18px}
 @media(max-width:800px){.about{grid-template-columns:1fr}.about img{max-width:320px}}
 
+
+/* programs + beyond */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule);border-radius:20px;background:var(--white);overflow:hidden;margin-top:20px}
+.pgrid div{padding:20px 26px;border-bottom:1px solid var(--rule)}
+.pgrid div:nth-child(odd){border-right:1px solid var(--rule)}
+.pgrid div:nth-last-child(-n+2){border-bottom:0}
+.pgrid h4{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.25}
+.pgrid p{font-size:15.5px;color:var(--slate);margin-top:2px}
+.sub-h{font-size:22px;margin-top:48px}
+.beyond{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+.beyond h3{font-size:21px;margin-bottom:10px}
+.beyond ul{list-style:none;display:grid;gap:8px}
+.beyond li{padding-left:22px;position:relative;font-size:17px}
+.beyond li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--rose)}
+@media(max-width:800px){.beyond{grid-template-columns:1fr}}
+@media(max-width:640px){.pgrid{grid-template-columns:1fr}.pgrid div:nth-child(odd){border-right:0}.pgrid div:nth-last-child(2){border-bottom:1px solid var(--rule)}}
+
 /* contact */
 .contact{background:var(--ink);color:var(--paper);padding:clamp(64px,9vw,110px) 0 40px}
 .contact h2{font-size:clamp(36px,6.5vw,72px);max-width:16ch;letter-spacing:-.03em}
@@ -186,6 +203,7 @@ body.lock{overflow:hidden}
         <li><a class="l" href="#projects">Projects</a></li>
         <li class="hide-s"><a class="l" href="#experience">Experience</a></li>
         <li class="hide-s"><a class="l" href="#skills">Skills</a></li>
+        <li class="hide-s"><a class="l" href="#beyond">Leadership</a></li>
         <li class="hide-s"><a class="l" href="#about">About</a></li>
         <li><a class="l" href="#contact">Contact</a></li>
       </ul>
@@ -202,7 +220,7 @@ body.lock{overflow:hidden}
     <p class="lede">I'm a Computer Science and Financial Information &amp; Analysis double major at Clarkson University (class of 2027). <strong>Recently:</strong> an OCR and RAG pipeline for pharmaceutical documents, and a backtesting engine that checks its own results against an independent calculation. <strong>Now:</strong> a personal trading bot, and a SQL analytics project with Breaking Games.</p>
     <div class="cta">
       <a class="btn primary" href="#projects">See my projects</a>
-      <a class="btn ghost" href="resume.pdf">Download resume</a>
+      <a class="btn ghost" href="fabunmioa_data.pdf">Download resume</a>
     </div>
   </div>
 </section>
@@ -398,10 +416,22 @@ body.lock{overflow:hidden}
         <div><h3>SQL &amp; Database Architecture, Breaking Games <span class="badge">In progress</span></h3><p>Turning six messy e-commerce CSVs into a consolidated analytics database and a Q4 dashboard, with documented transformation rules.</p></div>
       </li>
       <li>
-        <div class="when">2022 to 2027</div>
-        <div><h3>Clarkson University</h3><p>B.Sc. Computer Science and B.Sc. Financial Information and Analysis (double major), class of 2027.</p></div>
+        <div class="when">2023 to 2027</div>
+        <div><h3>Clarkson University</h3><p>B.E. Computer Science and B.S. Financial Information and Analysis (double major), expected May 2027. <!-- TODO: confirm degree wording (B.E. vs B.S. in Computer Science). --></p><p>Relevant coursework: machine learning, data analytics, financial analysis, statistics, mathematics, economics, project management, marketing. <!-- TODO: trim to courses you can discuss in an interview. --></p></div>
       </li>
     </ul>
+    <h3 class="sub-h">More internships and programs</h3>
+    <!-- TODO for each item below: add dates and one line on what you did or built. Remove any you can't confirm. -->
+    <div class="pgrid">
+      <div><h4>Prologue Films</h4><p>AI Workflow Automation internship</p></div>
+      <div><h4>Handshake AI</h4><p>Research Fellowship</p></div>
+      <div><h4>Turner Construction</h4><p>Internship</p></div>
+      <div><h4>Bank of America</h4><p>Paid program</p></div>
+      <div><h4>Barclays</h4><p>Banking experience</p></div>
+      <div><h4>Google CSSI</h4><p>Computer Science Summer Institute</p></div>
+      <div><h4>NYC Youth Employment (SYEP)</h4><p>Summer internship</p></div>
+      <div><h4>Girls Who Code</h4><p>Program</p></div>
+    </div>
     <p class="note">The Pfizer, Beats by Dre, and Breaking Games projects were completed as virtual externships through Extern, which verified them. They are project work, not employment.</p>
   </div>
 </section>
@@ -413,11 +443,27 @@ body.lock{overflow:hidden}
     </div>
     <div class="skills">
       <div><h3>Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">JavaScript</span></div></div>
-      <div><h3>AI and machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">OCR</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Gradio</span><span class="chip">Model evaluation</span></div></div>
-      <div><h3>Data and analytics</h3><div class="chips"><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Streamlit</span></div></div>
+      <div><h3>AI and machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">OCR</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Gradio</span><span class="chip">Model evaluation</span><span class="chip">NLP</span><span class="chip">Workflow automation</span><span class="chip">API integration</span></div></div>
+      <div><h3>Data and analytics</h3><div class="chips"><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Streamlit</span><span class="chip">NumPy</span><span class="chip">Metabase</span></div></div>
       <div><h3>Finance</h3><div class="chips"><span class="chip">Algorithmic trading</span><span class="chip">Backtesting</span><span class="chip">Risk metrics</span><span class="chip">Financial modeling</span><span class="chip">Statistical analysis</span></div></div>
+      <div><h3>Tools and infrastructure</h3><div class="chips"><span class="chip">Git and GitHub</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Data pipelines</span><span class="chip">Databases</span></div></div>
     </div>
     <p class="learning"><b>Learning next:</b> reinforcement learning, advanced SQL, and TypeScript with React.</p>
+  </div>
+</section>
+
+<section class="sec" id="beyond">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Leadership and initiative</h2>
+      <p>The work I do outside of class and internships.</p>
+    </div>
+    <!-- TODO: add your actual ASU role and one concrete result (attendance, budget, members), and your tutoring/baking/braiding details if you want numbers there. -->
+    <div class="beyond">
+      <div><h3>Leadership</h3><ul><li><b>African Student Union, Executive Board Member.</b> Helped organize cultural events and student engagement initiatives. <!-- TODO: add ONE number you can stand behind (event attendance is best), e.g. "about 100 attendees at Cultural Day". Label estimates as approximate. --></li><li>Cultural Day and African cultural programming</li><li>Student organization management and event coordination</li></ul></div>
+      <div><h3>Entrepreneurship</h3><ul><li>Hair braiding business</li><li>Baking and selling products</li><li>Private tutoring</li></ul></div>
+      <div><h3>Independent work</h3><ul><li>Personal research projects</li><li>Independent technical projects</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -427,7 +473,7 @@ body.lock{overflow:hidden}
     <div>
       <h2 style="margin-bottom:24px">About me</h2>
       <p>I like problems where finance and software overlap: a model is only useful if the data behind it is clean and the system around it is dependable. That's why my projects spend as much time on data cleaning, evaluation, and measuring results as on the model.</p>
-      <p>I'm a double major at Clarkson, I've led a data analytics internship, and I've completed externships with Pfizer, Beats by Dre, and Breaking Games.</p>
+      <p>I'm a double major at Clarkson who started early: Google CSSI and Girls Who Code in high school, then banking programs, internships, and externships that moved me from programming into data, AI, and quantitative finance. I also run small businesses and help lead the African Student Union.</p>
       <p>Outside of code I sketch UI ideas, watch too many K-dramas, and keep a running list of names for a future ragdoll cat (Satoshi is winning).</p>
     </div>
   </div>
@@ -443,7 +489,7 @@ body.lock{overflow:hidden}
       <a class="btn primary" href="mailto:oluwanifemifabunmi6@gmail.com">Email me</a>
       <a class="btn ghost" href="https://linkedin.com/in/nifemifabunmi">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/nifemifabunmi">GitHub</a>
-      <a class="btn ghost" href="fabunmioa_data.pdf">Resume</a>
+      <a class="btn ghost" href="resume.pdf">Resume</a>
     </div>
     <div class="foot">
       <span>Oluwanifemi Fabunmi, New York, NY</span>
