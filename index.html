@@ -109,6 +109,26 @@ p{max-width:62ch}
 .bigstat-label{font-size:16px;color:var(--slate);margin:6px 0 22px}
 @media(max-width:860px){.proj{grid-template-columns:1fr}.flow-box{position:static}}
 
+/* detail views */
+.btn-detail{font-family:var(--display);font-weight:600;font-size:15px;background:var(--ink);color:var(--paper);border:0;border-radius:10px;padding:9px 18px;cursor:pointer;transition:background .15s,transform .15s}
+.btn-detail:hover{background:var(--rose);transform:translateY(-1px)}
+dialog.detail{border:0;border-radius:20px;width:min(760px,calc(100% - 28px));max-height:90vh;padding:0;background:var(--paper);color:var(--ink);margin:auto}
+dialog.detail::backdrop{background:rgba(30,21,39,.62)}
+.detail-in{padding:clamp(24px,4vw,44px);max-height:90vh;overflow:auto}
+.detail-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+.detail-top h3{font-size:clamp(24px,3.4vw,32px)}
+.detail-top .sub{font-family:var(--display);font-size:15px;color:var(--slate);font-weight:600;margin-bottom:6px}
+.x{font-family:var(--display);font-weight:600;font-size:15px;background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:8px 14px;cursor:pointer;flex:none}
+.x:hover{background:var(--blush)}
+.detail h4{font-family:var(--display);font-size:19px;font-weight:600;margin:30px 0 10px;letter-spacing:-.01em}
+.detail .tldr{background:var(--blush);border-radius:14px;padding:18px 22px;font-size:18px;max-width:none}
+.detail .tldr b{font-family:var(--display)}
+.detail .facts{margin:0}
+.detail .chips{margin-bottom:0}
+.detail .suggest{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:6px 22px 14px}
+.detail .suggest .facts{margin-top:14px}
+body.lock{overflow:hidden}
+
 /* also built */
 .also{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule);border-radius:20px;background:var(--white);overflow:hidden;margin-top:24px}
 .also a{display:block;text-decoration:none;padding:28px 30px;border-bottom:1px solid var(--rule);transition:background .15s}
@@ -179,7 +199,7 @@ p{max-width:62ch}
   <div class="wrap">
     <div class="status"><span class="dot" aria-hidden="true"></span>Open to opportunities</div>
     <h1>I build data, AI, and <em>quantitative</em> systems for real decisions.</h1>
-    <p class="lede">I'm a Computer Science and Financial Information &amp; Analysis double major at Clarkson University (class of 2027). <strong>Recently:</strong> an OCR and RAG pipeline for pharmaceutical documents, and a trading engine that models latency and slippage. <strong>Now:</strong> a personal trading bot, and a SQL analytics project with Breaking Games.</p>
+    <p class="lede">I'm a Computer Science and Financial Information &amp; Analysis double major at Clarkson University (class of 2027). <strong>Recently:</strong> an OCR and RAG pipeline for pharmaceutical documents, and a backtesting engine that checks its own results against an independent calculation. <strong>Now:</strong> a personal trading bot, and a SQL analytics project with Breaking Games.</p>
     <div class="cta">
       <a class="btn primary" href="#projects">See my projects</a>
       <a class="btn ghost" href="resume.pdf">Download resume</a>
@@ -192,12 +212,12 @@ p{max-width:62ch}
     <span><b>Pfizer</b> OCR + RAG prototype</span>
     <span><b>Beats by Dre</b> 4,764 survey responses analyzed</span>
     <span><b>Cobble</b> Data Analytics &amp; Insights Intern (Lead)</span>
-    <span><b>Trading engine</b> backtests with Sharpe and Sortino</span>
+    <span><b>Trading engine</b> backtests cross-checked against buy and hold</span>
     <span><b>Breaking Games</b> six CSVs into one analytics database</span>
     <span aria-hidden="true"><b>Pfizer</b> OCR + RAG prototype</span>
     <span aria-hidden="true"><b>Beats by Dre</b> 4,764 survey responses analyzed</span>
     <span aria-hidden="true"><b>Cobble</b> Data Analytics &amp; Insights Intern (Lead)</span>
-    <span aria-hidden="true"><b>Trading engine</b> backtests with Sharpe and Sortino</span>
+    <span aria-hidden="true"><b>Trading engine</b> backtests cross-checked against buy and hold</span>
     <span aria-hidden="true"><b>Breaking Games</b> six CSVs into one analytics database</span>
   </div>
 </div>
@@ -206,7 +226,7 @@ p{max-width:62ch}
   <div class="wrap">
     <div class="sec-head">
       <h2>Selected work</h2>
-      <p>Three projects, each with the problem, how I approached it, and what came out.</p>
+      <p>Four projects, each with the problem, how I approached it, and what came out.</p>
     </div>
 
     <!-- Project 1: Pfizer -->
@@ -225,6 +245,7 @@ p{max-width:62ch}
           <span class="chip">Python</span><span class="chip">OCR</span><span class="chip">RAG</span><span class="chip">LLMs</span><span class="chip">PyMuPDF</span><span class="chip">Gradio</span>
         </div>
         <div class="links">
+          <button class="btn-detail" type="button" data-open="d-pfizer">Read the breakdown</button>
           <a href="https://colab.research.google.com/drive/1pVevNbVkdP4VtDnI52HGIAbcwjfNUOxr?usp=sharing">Open the Colab demo</a>
           <a href="https://extern.com/portfolios/nifemi-fabunmi#work-pfizer-supply-chain-document-processing-externship">Project write-up</a>
         </div>
@@ -244,35 +265,67 @@ p{max-width:62ch}
     <!-- Project 2: Trading engine -->
     <article class="proj">
       <div>
-        <div class="meta"><b>Personal project</b>, started August 2024</div>
-        <h3>A quantitative trading engine that models the costs real trades face</h3>
-        <p>Most beginner backtests assume instant, free fills. I built a modular engine that simulates latency and slippage, so strategy results look closer to what live trading would produce.</p>
+        <div class="meta"><b>Personal project</b>, built to learn quantitative finance</div>
+        <h3>A backtesting engine that checks its own work</h3>
+        <p>I built a Python backtester for a moving-average crossover with an RSI filter, with a Streamlit interface. My first version was quietly wrong, so I added an independent calculation to cross-check it.</p>
         <ul class="facts">
-          <li>Real-time market data ingestion and multi-asset portfolio monitoring.</li>
-          <li>Simulated live execution with latency and slippage modeling.</li>
-          <li>Backtested moving-average crossover and RSI strategies on historical data.</li>
-          <li>Computed Sharpe ratio, Sortino ratio, and annualized return to compare strategies on a risk-adjusted basis.</li>
+          <li>20/50-day moving-average crossover with an RSI filter, whole-share sizing, a 0.1% fee per trade, and fills at the next bar's close.</li>
+          <li>Cross-checked against a separate vectorised backtest. It caught a bug that skipped sell orders and had turned a +19.9% result into -15.0%.</li>
+          <li>On AAPL (about two years of daily data to October 2026): +16.25% with an -18.57% maximum drawdown, against +42.09% and -30.22% for buy and hold.</li>
+          <li>The write-up states its limits: one stock, 13 trades, and no slippage model yet.</li>
         </ul>
         <div class="chips">
-          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Streamlit</span><span class="chip">REST APIs</span><span class="chip">Backtesting</span>
+          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">yfinance</span><span class="chip">Streamlit</span><span class="chip">Backtesting</span>
         </div>
         <div class="links">
-          <a href="https://github.com/nifemifabunmi/algorithmic-trading-app">View the code</a>
+          <button class="btn-detail" type="button" data-open="d-trading">Read the breakdown</button>
+          <a href="https://github.com/nifemifabunmi/quantitative-trading-engine">View the code</a>
         </div>
-        <!-- TODO: add your best strategy's real Sharpe / annualized return and the test period here. -->
       </div>
       <aside class="flow-box" aria-label="Engine overview">
-        <div class="flow-title">What happens to a trading signal</div>
+        <div class="flow-title">How a backtest runs</div>
         <ol class="flow">
-          <li><strong>Market data</strong><span>Live feeds through APIs, historical data for tests</span></li>
-          <li><strong>Strategy signals</strong><span>Moving-average crossover, RSI</span></li>
-          <li><strong>Simulated execution</strong><span>Latency and slippage applied to every fill</span></li>
-          <li><strong>Portfolio and risk</strong><span>Sharpe, Sortino, annualized return</span></li>
+          <li><strong>Market data</strong><span>Yahoo Finance via yfinance, saved to CSV so runs repeat</span></li>
+          <li><strong>Signals</strong><span>20/50-day crossover with an RSI filter</span></li>
+          <li><strong>Simulated fills</strong><span>0.1% fee, executed at the next bar's close</span></li>
+          <li><strong>Results</strong><span>Return, drawdown, and buy-and-hold comparison</span></li>
+          <li><strong>Cross-check</strong><span>Independent vectorised backtest must agree</span></li>
         </ol>
       </aside>
     </article>
 
-    <!-- Project 3: Beats -->
+    <!-- Project 3: Music recommender -->
+    <article class="proj">
+      <div>
+        <div class="meta"><b>Personal project</b>, with tests, CI, and a model card</div>
+        <h3>An interpretable recommender that reports where it fails</h3>
+        <p>I turned a starter recommender into a small system with retrieval, scoring, diversity-aware ranking, and plain-language explanations, then evaluated it against baselines and published the results that didn't flatter it.</p>
+        <ul class="facts">
+          <li>Scored 0.59 NDCG@5 against 0.11 for random and 0.45 for genre-only, on seven hand-labelled listeners with overlapping confidence intervals.</li>
+          <li>Tuned weights looked better in-sample (0.62) but lost under leave-one-listener-out validation (0.56 vs 0.59), so I kept the original weights.</li>
+          <li>Optional AI-written explanations pass through a rule-based guardrail, with a safe fallback if a check fails.</li>
+          <li>Automated tests, continuous integration across Python 3.10 to 3.12, and a model card.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">pytest</span><span class="chip">Streamlit</span><span class="chip">NDCG evaluation</span><span class="chip">GitHub Actions</span><span class="chip">Explainable AI</span>
+        </div>
+        <div class="links">
+          <button class="btn-detail" type="button" data-open="d-recsys">Read the breakdown</button>
+          <a href="https://github.com/nifemifabunmi/applied-ai-system">View the code</a>
+        </div>
+      </div>
+      <aside class="flow-box" aria-label="Pipeline overview">
+        <div class="flow-title">How a recommendation is made</div>
+        <ol class="flow">
+          <li><strong>Catalog</strong><span>50-song demo set or 1,985-track large set</span></li>
+          <li><strong>Retrieval</strong><span>Genre and mood filter, relaxed when too few match</span></li>
+          <li><strong>Scoring and ranking</strong><span>Rules plus similarity to liked songs, with an artist-repeat penalty</span></li>
+          <li><strong>Explanation</strong><span>Rule-based reasons, optional AI text checked by a guardrail</span></li>
+        </ol>
+      </aside>
+    </article>
+
+    <!-- Project 4: Beats -->
     <article class="proj">
       <div>
         <div class="meta"><b>Beats by Dre externship</b>, August 2025, verified by Extern</div>
@@ -287,6 +340,7 @@ p{max-width:62ch}
           <span class="chip">Python</span><span class="chip">Sentiment analysis</span><span class="chip">Data visualization</span><span class="chip">Survey analysis</span>
         </div>
         <div class="links">
+          <button class="btn-detail" type="button" data-open="d-beats">Read the breakdown</button>
           <a href="https://extern.com/portfolios/nifemi-fabunmi#work-beats-by-dre-data-analytics-qualitative-quantitative-insights-externship">Project write-up</a>
         </div>
       </div>
@@ -320,10 +374,10 @@ p{max-width:62ch}
         <p>A prototype web browser in C++ with modular navigation and text formatting.</p>
         <span class="t">C++, systems programming</span>
       </a>
-      <a href="https://github.com/nifemifabunmi/inventory-tracking-system">
-        <h3>Inventory tracking system</h3>
-        <p>C++ structs, vectors, and file I/O to make inventory updates faster and more accurate.</p>
-        <span class="t">C++, data structures</span>
+      <a href="https://github.com/nifemifabunmi/liquidity_trace">
+        <h3>Liquidity Trace</h3>
+        <p>A research project on order flow and market impact. Phase 1, a tested order book reconstructor on synthetic data, is complete.</p>
+        <span class="t">Python, market microstructure</span>
       </a>
     </div>
   </div>
@@ -344,8 +398,8 @@ p{max-width:62ch}
         <div><h3>SQL &amp; Database Architecture, Breaking Games <span class="badge">In progress</span></h3><p>Turning six messy e-commerce CSVs into a consolidated analytics database and a Q4 dashboard, with documented transformation rules.</p></div>
       </li>
       <li>
-        <div class="when">2023 to 2027</div>
-        <div><h3>Clarkson University</h3><p>B.E. Computer Science and B.S. Financial Information and Analysis (double major), class of 2027.</p></div>
+        <div class="when">2022 to 2027</div>
+        <div><h3>Clarkson University</h3><p>B.Sc. Computer Science and B.Sc. Financial Information and Analysis (double major), class of 2027.</p></div>
       </li>
     </ul>
     <p class="note">The Pfizer, Beats by Dre, and Breaking Games projects were completed as virtual externships through Extern, which verified them. They are project work, not employment.</p>
@@ -359,7 +413,7 @@ p{max-width:62ch}
     </div>
     <div class="skills">
       <div><h3>Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C++</span><span class="chip">C</span><span class="chip">Java</span><span class="chip">JavaScript</span></div></div>
-      <div><h3>AI and machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">OCR</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Gradio</span></div></div>
+      <div><h3>AI and machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">OCR</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Gradio</span><span class="chip">Model evaluation</span></div></div>
       <div><h3>Data and analytics</h3><div class="chips"><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Streamlit</span></div></div>
       <div><h3>Finance</h3><div class="chips"><span class="chip">Algorithmic trading</span><span class="chip">Backtesting</span><span class="chip">Risk metrics</span><span class="chip">Financial modeling</span><span class="chip">Statistical analysis</span></div></div>
     </div>
@@ -389,7 +443,7 @@ p{max-width:62ch}
       <a class="btn primary" href="mailto:oluwanifemifabunmi6@gmail.com">Email me</a>
       <a class="btn ghost" href="https://linkedin.com/in/nifemifabunmi">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/nifemifabunmi">GitHub</a>
-      <a class="btn ghost" href="resume.pdf">Resume</a>
+      <a class="btn ghost" href="fabunmioa_data.pdf">Resume</a>
     </div>
     <div class="foot">
       <span>Oluwanifemi Fabunmi, New York, NY</span>
@@ -398,5 +452,195 @@ p{max-width:62ch}
   </div>
 </footer>
 
+<!-- Project breakdowns. Reflection sections are drafts: edit them so they match what you actually experienced. -->
+
+<dialog class="detail" id="d-pfizer" aria-labelledby="t-pfizer">
+  <div class="detail-in">
+    <div class="detail-top">
+      <div><div class="sub">Pfizer externship, April 2026</div><h3 id="t-pfizer">Pharmaceutical document intelligence</h3></div>
+      <button class="x" type="button" data-close>Close</button>
+    </div>
+    <p class="tldr"><b>TL;DR:</b> I built a prototype that turns scanned supplier PDFs into something you can ask questions. It reads pages with OCR, splits files into documents, retrieves relevant passages, and answers in a chat window. I compared three OCR engines and three embedding models and measured the results.</p>
+
+    <h4>Key points</h4>
+    <ul class="facts">
+      <li>Compared Tesseract, EasyOCR, and PaddleOCR on a scanned supplier PDF and recommended one for automation.</li>
+      <li>Extracted text and bounding boxes with PyMuPDF so layout was preserved.</li>
+      <li>Used a local LLM to find document boundaries and label each page in multi-document PDFs.</li>
+      <li>Tuned chunking and retrieval, then compared three embedding models and logged the differences.</li>
+      <li>Delivered a Gradio chatbot and a Colab demo reporting recall, MRR, and response metrics.</li>
+    </ul>
+
+    <h4>Skills used</h4>
+    <div class="chips"><span class="chip">Python</span><span class="chip">OCR</span><span class="chip">PyMuPDF</span><span class="chip">Embeddings</span><span class="chip">RAG</span><span class="chip">Local LLMs</span><span class="chip">Gradio</span><span class="chip">Evaluation (recall, MRR)</span></div>
+
+    <h4>What I learned</h4>
+    <ul class="facts">
+      <li>Retrieval quality starts before retrieval: OCR errors and wrong page boundaries show up later as wrong answers.</li>
+      <li>Side-by-side comparisons with metrics gave me a reason for every tool choice instead of a guess.</li>
+    </ul>
+
+    <h4>What I wish I had done</h4>
+    <ul class="facts">
+      <li>Build a labeled set of test questions first, so every change could be scored the same way.</li>
+      <li>Test on more document types than a single supplier format.</li>
+    </ul>
+
+    <h4>What I'd do next</h4>
+    <div class="suggest"><ul class="facts">
+      <li>Show the source page for every answer so a reviewer can verify it quickly.</li>
+      <li>Add a confidence threshold that routes uncertain extractions to a human, which matters in a regulated industry.</li>
+      <li>Try hybrid search (keyword plus embeddings) and compare it on the same test set.</li>
+      <li>Estimate processing time and cost per document against manual review, so the value is stated in dollars and hours.</li>
+    </ul></div>
+  </div>
+</dialog>
+
+<dialog class="detail" id="d-trading" aria-labelledby="t-trading">
+  <div class="detail-in">
+    <div class="detail-top">
+      <div><div class="sub">Personal project, built to learn quantitative finance</div><h3 id="t-trading">Backtesting engine</h3></div>
+      <button class="x" type="button" data-close>Close</button>
+    </div>
+    <p class="tldr"><b>TL;DR:</b> A Python backtester for a 20/50-day moving-average crossover with an RSI filter, plus a Streamlit app. Its main lesson was that a backtest can be quietly wrong: my first version skipped trades, and an independent vectorised calculation exposed it.</p>
+
+    <h4>Key points</h4>
+    <ul class="facts">
+      <li>Whole-share sizing, a 0.1% fee per trade, and fills at the next bar's close rather than the signal bar.</li>
+      <li>Result on AAPL, about two years of daily data, $100,000 starting capital: +16.25% total return, 13 trades, -18.57% maximum drawdown.</li>
+      <li>Buy and hold over the same period: +42.09% with a -30.22% maximum drawdown.</li>
+      <li>Filling at the signal day's close instead would have shown +19.92%, which is why same-bar fills flatter results.</li>
+      <li>Single-asset backtest is verified. Multi-asset portfolio code (risk parity, mean-variance) is written but not yet verified.</li>
+    </ul>
+
+    <h4>Skills used</h4>
+    <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">yfinance</span><span class="chip">Streamlit</span><span class="chip">Backtesting</span><span class="chip">Drawdown analysis</span><span class="chip">Cross-validation of results</span></div>
+
+    <h4>What I learned</h4>
+    <ul class="facts">
+      <li>A backtest can be quietly wrong. My original code skipped a buy when the fee didn't fit in the leftover cash, and skipped the matching sell too. Two of seven buys never happened, which turned +19.9% into -15.0%.</li>
+      <li>Acting one bar after a signal, as a real trader must, cut the return from +19.92% to +16.25%.</li>
+      <li>Win rate alone misleads. Only 2 of 6 closed trades won, yet the strategy made money because the winners were much larger than the losers.</li>
+      <li>Drawdown is measured from the running peak, not from starting capital.</li>
+    </ul>
+
+    <h4>What I wish I had done</h4>
+    <ul class="facts">
+      <li>Write the independent cross-check before the main backtest instead of after.</li>
+      <li>Test on many tickers and periods from the start. One stock and 13 trades is too little to say anything about the strategy.</li>
+      <li>Validate the machine-learning experiments properly. Overlapping targets and filled missing values mean those accuracy figures can't be trusted, so I label that module experimental.</li>
+    </ul>
+
+    <h4>What I'd do next</h4>
+    <div class="suggest"><ul class="facts">
+      <li>Compute the Sharpe ratio the standard way (mean of daily excess returns) and add a beta and alpha regression against the benchmark.</li>
+      <li>Add a slippage model and fill at the next open instead of the next close.</li>
+      <li>Use walk-forward testing and run the strategy across many tickers and periods.</li>
+      <li>Report risk-adjusted metrics next to return. The strategy earned less than buy and hold but with a shallower drawdown, and a risk-adjusted view is the fair way to compare them.</li>
+      <li>Add unit tests for the indicators and metrics, and use Wilder-smoothed RSI.</li>
+      <li>Label the Real-Time tab as simulated or connect it to real data. Right now it shows generated numbers.</li>
+    </ul></div>
+  </div>
+</dialog>
+
+<dialog class="detail" id="d-recsys" aria-labelledby="t-recsys">
+  <div class="detail-in">
+    <div class="detail-top">
+      <div><div class="sub">Personal project, with tests, CI, and a model card</div><h3 id="t-recsys">Interpretable music recommender</h3></div>
+      <button class="x" type="button" data-close>Close</button>
+    </div>
+    <p class="tldr"><b>TL;DR:</b> A small, testable recommender where every score can be traced. It retrieves candidates, scores them, ranks for diversity, and explains each pick. I evaluated it against baselines, and reported where improvements disappeared under proper validation.</p>
+
+    <h4>Key points</h4>
+    <ul class="facts">
+      <li>Two-stage design: retrieval with a progressively relaxed genre and mood filter, then scoring with an artist-repeat penalty.</li>
+      <li>On seven hand-labelled listeners: 0.59 NDCG@5, against 0.11 random and 0.45 genre-only. The intervals overlap, so I call it an encouraging signal, not proof.</li>
+      <li>A search over 800 weight configurations reached 0.62 in-sample, but dropped to 0.56 vs 0.59 when each listener was held out. I kept the original weights.</li>
+      <li>On a 1,985-track catalog with synthetic listeners, no method won under both taste assumptions, and the README says so.</li>
+      <li>Optional AI-written explanations are accepted only if a local guardrail passes, otherwise the rule-based text is shown.</li>
+    </ul>
+
+    <h4>Skills used</h4>
+    <div class="chips"><span class="chip">Python</span><span class="chip">pytest</span><span class="chip">Streamlit</span><span class="chip">NDCG and precision@k</span><span class="chip">Ablation studies</span><span class="chip">Leave-one-out validation</span><span class="chip">GitHub Actions</span><span class="chip">Model cards</span></div>
+
+    <h4>What I learned</h4>
+    <ul class="facts">
+      <li>An improvement that only shows up in-sample is probably overfitting. Holding out a listener made that visible.</li>
+      <li>Simple, traceable scoring gave up some accuracy but made every result explainable, which is a real trade-off and not a free win.</li>
+      <li>Reviewing AI-generated changes matters. An AI review found real bugs in my code, including a diversity penalty applied after the top-k cut.</li>
+    </ul>
+
+    <h4>What I wish I had done</h4>
+    <ul class="facts">
+      <li>Collect real listener data. Seven labelled listeners and synthetic benchmarks limit how much I can claim.</li>
+      <li>Avoid mood labels derived from the same audio features used for scoring, since they aren't independent evidence.</li>
+    </ul>
+
+    <h4>What I'd do next</h4>
+    <div class="suggest"><ul class="facts">
+      <li>Gather consented listener taste files, which the repo already supports, and publish real-user results.</li>
+      <li>Extend diversity beyond artists to genres, to reduce the filter-bubble effect the model card describes.</li>
+      <li>Apply this validation discipline to the trading engine. Out-of-sample testing and overfitting checks are exactly what a quant interviewer looks for.</li>
+    </ul></div>
+  </div>
+</dialog>
+
+<dialog class="detail" id="d-beats" aria-labelledby="t-beats">
+  <div class="detail-in">
+    <div class="detail-top">
+      <div><div class="sub">Beats by Dre externship, August 2025</div><h3 id="t-beats">Consumer insights for wireless speakers</h3></div>
+      <button class="x" type="button" data-close>Close</button>
+    </div>
+    <p class="tldr"><b>TL;DR:</b> I analyzed survey and review data to understand what a target customer wants from a wireless speaker, compared Beats with four competitors, and turned the findings into a customer journey and a presentation draft.</p>
+
+    <h4>Key points</h4>
+    <ul class="facts">
+      <li>Cleaned and analyzed 4,764 survey responses with quantitative and qualitative summaries.</li>
+      <li>Ran exploratory and sentiment analysis on scraped Amazon reviews for Beats and four competitors.</li>
+      <li>Mapped an AIDA customer journey (awareness, interest, desire, action) for middle-aged wellness seekers.</li>
+      <li>Drafted a structured presentation with visuals and recommendations.</li>
+    </ul>
+
+    <h4>Skills used</h4>
+    <div class="chips"><span class="chip">Python</span><span class="chip">Data cleaning</span><span class="chip">Sentiment analysis</span><span class="chip">Data visualization</span><span class="chip">Survey analysis</span><span class="chip">Presenting findings</span></div>
+
+    <h4>What I learned</h4>
+    <ul class="facts">
+      <li>Defining one specific customer segment first made the findings usable. General averages told me much less.</li>
+      <li>Clean data comes first. The analysis was only as trustworthy as the survey cleaning behind it.</li>
+    </ul>
+
+    <h4>What I wish I had done</h4>
+    <ul class="facts">
+      <li>Check the sentiment scores against a small hand-labeled sample of reviews.</li>
+      <li>Open the presentation with the recommendation, then show the evidence.</li>
+    </ul>
+
+    <h4>What I'd do next</h4>
+    <div class="suggest"><ul class="facts">
+      <li>Run significance tests so differences between brands are backed by more than raw averages.</li>
+      <li>Use topic modeling on reviews to explain why sentiment differs, not just that it does.</li>
+      <li>Estimate the business impact of each recommendation, such as potential revenue or retention, and rank them.</li>
+      <li>Add a one-slide executive summary with a single clear recommendation.</li>
+    </ul></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var body=document.body;
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var d=document.getElementById(b.getAttribute('data-open'));
+      if(d&&d.showModal){d.showModal();body.classList.add('lock');d.querySelector('.detail-in').scrollTop=0;}
+    });
+  });
+  document.querySelectorAll('dialog.detail').forEach(function(d){
+    d.addEventListener('close',function(){body.classList.remove('lock');});
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    d.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',function(){d.close();});});
+  });
+})();
+</script>
 </body>
 </html>
