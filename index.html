@@ -141,16 +141,38 @@ body.lock{overflow:hidden}
 @media(max-width:700px){.also{grid-template-columns:1fr}.also>*:nth-child(odd){border-right:0}.also>*:nth-last-child(2){border-bottom:1px solid var(--rule)}}
 
 /* experience */
-.xp{list-style:none;display:grid;gap:0}
-.xp li{display:grid;grid-template-columns:200px 1fr;gap:12px 40px;padding:26px 0;border-top:1px solid var(--rule)}
-.xp li:first-child{border-top:0;padding-top:0}
-.xp .when{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--slate)}
-.xp h3{font-size:22px;margin-bottom:4px}
-.xp p{font-size:17px;color:var(--slate)}
-.xp .facts{margin:12px 0 0}.xp .facts li{font-size:16.5px;color:var(--slate)}
-.badge{display:inline-block;font-family:var(--display);font-size:12.5px;font-weight:600;background:var(--blush);color:var(--rose-deep);padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.roles{border-top:1px solid var(--rule)}
+details.role{border-bottom:1px solid var(--rule)}
+details.role summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:170px 1fr auto;gap:8px 32px;align-items:start;padding:22px 0}
+details.role summary::-webkit-details-marker{display:none}
+details.role summary::after{content:"+";font-family:var(--display);font-weight:600;font-size:26px;line-height:1;color:var(--rose);padding-top:2px}
+details.role[open] summary::after{content:"\2013"}
+details.role summary:hover h3{color:var(--rose-deep)}
+.role .when{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--slate);padding-top:4px}
+.role h3{font-size:22px;margin-bottom:2px}
+.role .org{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--rose-deep)}
+.role .one{font-size:16.5px;color:var(--slate);margin-top:6px}
+.role .body{padding:0 0 26px 202px}
+.role .body p{font-size:17px;color:var(--slate)}
+.role .body .facts{margin:0}
+.role .badge{margin-left:8px}
+@media(max-width:700px){
+  details.role summary{grid-template-columns:1fr auto}
+  .role .when{grid-column:1/-1;padding-top:0}
+  .role .body{padding-left:0}
+}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:20px;padding:26px 28px}
+.card .when{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--slate)}
+.card h4{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.25;margin:6px 0 8px}
+.card p{font-size:16px;color:var(--slate)}
+.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grp{font-family:var(--display);font-weight:600;font-size:15px;color:var(--slate);margin:28px 0 12px}
+.sims{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sims.small{grid-template-columns:repeat(2,1fr)}
+.sims .feat{border-top:4px solid var(--rose)}
+@media(max-width:800px){.edu,.sims,.sims.small{grid-template-columns:1fr}}
+.badge{display:inline-block;font-family:var(--display);font-size:12.5px;font-weight:600;background:var(--blush);color:var(--rose-deep);padding:3px 10px;border-radius:999px;vertical-align:middle}
 .note{margin-top:26px;font-size:16px;color:var(--slate);max-width:70ch}
-@media(max-width:640px){.xp li{grid-template-columns:1fr}}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,4vw,48px) clamp(28px,5vw,64px)}
@@ -217,9 +239,9 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="status"><span class="dot" aria-hidden="true"></span>Open to opportunities</div>
     <h1>I build data, AI, and <em>quantitative</em> systems for real decisions.</h1>
-    <p class="lede">I'm a Computer Science and Financial Information &amp; Analysis double major at Clarkson University (class of 2027).
-      <p class="lede"><strong>Recently:</strong> an OCR and RAG pipeline for pharmaceutical documents, and a backtesting engine that checks its own results against an independent calculation. </p>
-      <p class="lede"><strong>Now:</strong> a personal trading bot, and a SQL analytics project with Breaking Games.</p> </p>
+    <p class="lede">I'm a Computer Science and Financial Information &amp; Analysis double major at Clarkson University (class of 2027).</p>
+    <p class="lede"><strong>Recently:</strong> an OCR and RAG pipeline for pharmaceutical documents, and a backtesting engine that checks its own results against an independent calculation.</p>
+    <p class="lede"><strong>Now:</strong> a personal trading bot, and a SQL analytics project with Breaking Games.</p>
     <div class="cta">
       <a class="btn primary" href="#projects">See my projects</a>
       <a class="btn ghost" href="fabunmioa_data.pdf">Download resume</a>
@@ -411,76 +433,82 @@ body.lock{overflow:hidden}
 <section class="sec" id="experience">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Experience and education</h2>
+      <h2>Experience</h2>
+      <p>Select a role to see what I did.</p>
     </div>
-    <ul class="xp">
-      <li>
-        <div class="when">Now</div>
-        <div><h3>SQL &amp; Database Architecture, Breaking Games <span class="badge">In progress</span></h3><p>Virtual externship through Extern. Turning six messy e-commerce CSVs into a consolidated analytics database and a Q4 dashboard, with documented transformation rules.</p></div>
-      </li>
-      <li>
-        <div class="when">Jul to Sep 2025</div>
-        <div><h3>Data Analytics &amp; Insights Intern (Lead), Cobble</h3>
-          <p>Internship at Cobble, a collaborative decision-making app.</p>
-          <ul class="facts">
-            <li>Built three Metabase dashboards on decision effectiveness, user engagement, and poll performance, after defining the KPIs with stakeholder input.</li>
-            <li>Designed a composite Decision Effectiveness Score that weighs participation, response speed, and how clearly a decision resolves.</li>
-            <li>Analyzed 639 rows of poll performance data to find top-performing polls to replicate, and mapped usage patterns such as daily peaks and voting spikes.</li>
-            <li>Wrote up the method, findings, and next steps in a project report, including open challenges like how to weight the score and track clear outcomes.</li>
-          </ul>
-          <!-- Numbers from my report: top poll 2,100 votes; peak 543 daily active users; 54 votes at 6 PM on one day. Left out because they are the company's internal figures. -->
-          </div>
-      </li>
-      <li>
-        <div class="when">Jul to Aug 2024</div>
-        <div><h3>Digital Strategy &amp; Data Science Intern, New York Center for Interpersonal Development</h3>
-          <p>Remote internship.</p>
-          <ul class="facts">
-            <li>Ran surveys and stakeholder interviews, then synthesized the results in Excel and Tableau to find engagement bottlenecks, which led to a 25% increase in digital content performance.</li>
-            <li>Automated Tableau reporting workflows, cutting manual analysis time by 30%.</li>
-            <li>Presented findings and strategy recommendations to 10 to 50+ stakeholders.</li>
-            <li>Created social media posts and presentations in Canva and WordPress for a refreshed campaign.</li>
-          </ul></div>
-      </li>
-      <li>
-        <div class="when">Jul to Aug 2023</div>
-        <div><h3>Cybersecurity &amp; Risk Intern, Bank of America Work Prep (Girls Who Code)</h3>
-          <p>Remote program.</p>
-          <ul class="facts">
-            <li>Collaborated on a cybersecurity simulation project, analyzing risks and developing incident response strategies.</li>
-            <li>Completed Forage risk management and security assignments and earned a Girls Who Code certification in cybersecurity principles.</li>
-          </ul></div>
-      </li>
-      <li>
-        <div class="when">Jul to Aug 2022</div>
-        <div><h3>Software Engineering Intern, Google CS Summer Institute</h3>
-          <p>Remote program.</p>
-          <ul class="facts">
-            <li>Built an animal adoption website with a team of 5 in JavaScript, adding search filters and interactive maps.</li>
-            <li>Presented the final project to Google engineers and received positive feedback on design and function.</li>
-            <li>Completed certifications in HTML, JavaScript, and CSS.</li>
-          </ul></div>
-      </li>
-      <li>
-        <div class="when">Apr to May 2021</div>
-        <div><h3>Intern, Turner Construction</h3>
-          <p>Brooklyn, NY.</p>
-          <ul class="facts">
-            <li>Researched and compiled data into timely reports.</li>
-            <li>Maintained project files and researched construction sites.</li>
-            <li>Explored the architectural process and prepared presentations for clients.</li>
-          </ul></div>
-      </li>
-      <li>
-        <div class="when">May 2027</div>
-        <div><h3>Clarkson University, Double Major: B.Sc. Computer Science & B.Sc. Financial Information and Analysis </h3><p><b>Relevant coursework:</b> machine learning, data analytics, financial analysis, statistics, mathematics, economics, project management, marketing.</p></div>
-      </li>
-      <li>
-        <div class="when">High school(s)</div>
-        <div><p><h3>Brooklyn Emerging Leadership Academy (BELA) Charter High School, Brooklyn</h3><p>International Baccalaureate Diploma.</p><p>Honor roll and IB Dean's List.</p>
-          <h3>Clarkson Barton High School, Brooklyn</h3><p>Volunteer teacher assistant, Aug 2019 to Sep 2020.</p><p>Managed classroom supplies.</p><p>Offered one-on-one support outside school hours.</p></p></div>
-      </li>
-    </ul>
+
+    <div class="roles">
+      <details class="role">
+        <summary>
+          <div class="when">Now</div>
+          <div><h3>SQL &amp; Database Architecture <span class="badge">In progress</span></h3><div class="org">Breaking Games, virtual externship</div><p class="one">Turning six messy e-commerce CSVs into one analytics database.</p></div>
+        </summary>
+        <div class="body"><p>Virtual externship through Extern. Building a consolidated analytics database and a Q4 dashboard from six raw data sources, with documented transformation rules.</p></div>
+      </details>
+
+      <details class="role" open>
+        <summary>
+          <div class="when">Jul to Sep 2025</div>
+          <div><h3>Data Analytics &amp; Insights Intern (Lead)</h3><div class="org">Cobble, internship</div><p class="one">Built three Metabase dashboards and a Decision Effectiveness Score.</p></div>
+        </summary>
+        <div class="body"><ul class="facts">
+          <li>Built three Metabase dashboards on decision effectiveness, user engagement, and poll performance, after defining the KPIs with stakeholder input.</li>
+          <li>Designed a composite Decision Effectiveness Score that weighs participation, response speed, and how clearly a decision resolves.</li>
+          <li>Analyzed 639 rows of poll performance data to find top-performing polls to replicate, and mapped usage patterns such as daily peaks and voting spikes.</li>
+          <li>Wrote up the method, findings, and next steps in a project report, including open challenges like how to weight the score and track clear outcomes.</li>
+        </ul>
+        <!-- Numbers from my report: top poll 2,100 votes; peak 543 daily active users; 54 votes at 6 PM on one day. Left out because they are the company's internal figures. --></div>
+      </details>
+
+      <details class="role">
+        <summary>
+          <div class="when">Jul to Aug 2024</div>
+          <div><h3>Digital Strategy &amp; Data Science Intern</h3><div class="org">New York Center for Interpersonal Development, remote internship</div><p class="one">Survey analysis and Tableau automation behind a 25% lift in digital content performance.</p></div>
+        </summary>
+        <div class="body"><ul class="facts">
+          <li>Ran surveys and stakeholder interviews, then synthesized the results in Excel and Tableau to find engagement bottlenecks, which led to a 25% increase in digital content performance.</li>
+          <li>Automated Tableau reporting workflows, cutting manual analysis time by 30%.</li>
+          <li>Presented findings and strategy recommendations to 10 to 50+ stakeholders.</li>
+          <li>Created social media posts and presentations in Canva and WordPress for a refreshed campaign.</li>
+        </ul></div>
+      </details>
+
+      <details class="role">
+        <summary>
+          <div class="when">Jul to Aug 2023</div>
+          <div><h3>Cybersecurity &amp; Risk Intern</h3><div class="org">Bank of America Work Prep (Girls Who Code), remote program</div><p class="one">Cybersecurity simulation: risk analysis and incident response.</p></div>
+        </summary>
+        <div class="body"><ul class="facts">
+          <li>Collaborated on a cybersecurity simulation project, analyzing risks and developing incident response strategies.</li>
+          <li>Completed Forage risk management and security assignments and earned a Girls Who Code certification in cybersecurity principles.</li>
+        </ul></div>
+      </details>
+
+      <details class="role">
+        <summary>
+          <div class="when">Jul to Aug 2022</div>
+          <div><h3>Software Engineering Intern</h3><div class="org">Google CS Summer Institute, remote program</div><p class="one">Built an animal adoption website with a team of 5.</p></div>
+        </summary>
+        <div class="body"><ul class="facts">
+          <li>Built an animal adoption website with a team of 5 in JavaScript, adding search filters and interactive maps.</li>
+          <li>Presented the final project to Google engineers and received positive feedback on design and function.</li>
+          <li>Completed certifications in HTML, JavaScript, and CSS.</li>
+        </ul></div>
+      </details>
+
+      <details class="role">
+        <summary>
+          <div class="when">Apr to May 2021</div>
+          <div><h3>Intern</h3><div class="org">Turner Construction, Brooklyn, NY</div><p class="one">Research, reports, and client presentations.</p></div>
+        </summary>
+        <div class="body"><ul class="facts">
+          <li>Researched and compiled data into timely reports.</li>
+          <li>Maintained project files and researched construction sites.</li>
+          <li>Explored the architectural process and prepared presentations for clients.</li>
+        </ul></div>
+      </details>
+    </div>
+
     <h3 class="sub-h">Other internships and programs</h3>
     <!-- TODO for each item below: add dates and one line on what you did or built. Remove any you can't confirm. NYC SYEP can go here too if you want it listed. -->
     <div class="pgrid">
@@ -489,6 +517,37 @@ body.lock{overflow:hidden}
       <div><h4>Barclays</h4><p>Banking experience</p></div>
     </div>
     <p class="note">The Pfizer, Beats by Dre, and Breaking Games projects were completed as virtual externships through Extern, which verified them. They are project work, not employment.</p>
+
+    <h3 class="sub-h">Education</h3>
+    <div class="edu">
+      <div class="card">
+        <div class="when">Expected May 2027</div>
+        <h4>Clarkson University</h4>
+        <p>Double major: B.Sc. Computer Science and B.Sc. Financial Information and Analysis.</p>
+        <p style="margin-top:10px"><b>Relevant coursework:</b> machine learning, data analytics, financial analysis, statistics, mathematics, economics, project management, marketing.</p>
+      </div>
+      <div class="card">
+        <div class="when">High school</div>
+        <h4>Brooklyn Emerging Leadership Academy (BELA) Charter High School</h4>
+        <p>International Baccalaureate Diploma. Honor roll and IB Dean's List.</p>
+        <!-- TODO: add your graduation year once confirmed. -->
+      </div>
+    </div>
+
+    <h3 class="sub-h">Professional development and virtual job simulations</h3>
+    <p style="color:var(--slate);font-size:16px;margin-top:6px">Forage job simulations I completed in 2025.</p>
+    <!-- TODO: add the company behind each simulation and one line on what you did in it. -->
+    <div class="grp">Markets and quantitative</div>
+    <div class="sims">
+      <div class="card feat"><div class="when">Dec 23, 2025</div><h4>Global Markets Sales and Trading Analyst</h4><p>Forage job simulation</p></div>
+      <div class="card feat"><div class="when">Oct 12, 2025</div><h4>Markets Quantitative Analysis (MQA)</h4><p>Forage job simulation</p></div>
+      <div class="card feat"><div class="when">Oct 7, 2025</div><h4>Bloomberg Essentials</h4><p>Forage job simulation</p></div>
+    </div>
+    <div class="grp">Client and career skills</div>
+    <div class="sims small">
+      <div class="card"><div class="when">Oct 8, 2025</div><h4>Client Service</h4><p>Forage job simulation</p></div>
+      <div class="card"><div class="when">Aug 26, 2025</div><h4>Technical Interview Prep</h4><p>Forage job simulation</p></div>
+    </div>
   </div>
 </section>
 
@@ -504,7 +563,7 @@ body.lock{overflow:hidden}
       <div><h3>Finance</h3><div class="chips"><span class="chip">Algorithmic trading</span><span class="chip">Backtesting</span><span class="chip">Risk metrics</span><span class="chip">Financial modeling</span><span class="chip">Statistical analysis</span></div></div>
       <div><h3>Tools and infrastructure</h3><div class="chips"><span class="chip">Git and GitHub</span><span class="chip">Azure</span><span class="chip">ProjectLibre</span><span class="chip">Canva</span><span class="chip">WordPress</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Data pipelines</span><span class="chip">Databases</span></div></div>
     </div>
-    <p class="learning"><b>Learning next:</b> reinforcement learning, ml & predictive analytics, time-series analysis, optimization & operations research, computer networks, computer and network security, ai-based phishing, financial fraud detection, advanced SQL, and TypeScript with React.</p>
+    <p class="learning"><b>Learning next:</b> reinforcement learning, ML and predictive analytics, time-series analysis, optimization and operations research, computer networks, computer and network security, AI-based phishing, financial fraud detection, advanced SQL, and TypeScript with React.</p>
   </div>
 </section>
 
@@ -516,8 +575,9 @@ body.lock{overflow:hidden}
     </div>
     <div class="beyond">
       <div><h3>Leadership</h3><ul>
-        <li><b>Co-Founder and Vice President, African Student Union.</b> Served as second-in-command to the President, cooordinated the executive board and mentored new officers for better leadership transitions, planned 10+ annual events, managing logistics, budgets, and cross-organization partnerships. <!-- TODO: add ONE number you can stand behind (event attendance is best). Label estimates as approximate. --></li>
+        <li><b>Co-Founder and Vice President, African Student Union.</b> Served as second-in-command to the President, coordinated the executive board, mentored new officers for smoother leadership transitions, and planned 10+ annual events, managing logistics, budgets, and cross-organization partnerships.</li>
         <li><b>Treasurer, Clarkson University Girls Who Code.</b></li>
+        <li><b>Volunteer teacher assistant, Clara Barton High School, Brooklyn</b> (Aug 2019 to Sep 2020). Managed classroom supplies and offered one-on-one support outside school hours.</li>
         <li>Active Member, NSBE (National Society of Black Engineers), SWE (Society of Women Engineers), Codepath, and ColorStack</li>
         <li><b>Programmer, FIRST Tech Challenge Robotics.</b> Wrote C++ and Python for sensor-driven automation, autonomous logic, and real-time control.</li>
       </ul></div>
@@ -549,7 +609,7 @@ body.lock{overflow:hidden}
 <footer class="contact" id="contact">
   <div class="wrap">
     <h2>Let's build something useful.</h2>
-    <p>I'm looking for full-time opportunities, full-time opportunities in data, AI, and quantitative finance. The fastest way to reach me is email.</p>
+    <p>I'm looking for full-time opportunities in data, AI, and quantitative finance. The fastest way to reach me is email.</p>
     <div class="cta">
       <a class="btn primary" href="mailto:oluwanifemifabunmi6@gmail.com">Email me</a>
       <a class="btn ghost" href="https://linkedin.com/in/nifemifabunmi">LinkedIn</a>
